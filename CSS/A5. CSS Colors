@@ -1,0 +1,204 @@
+CSS Colors
+Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.
+
+CSS Color Names
+In CSS, a color can be specified by using a predefined color name:
+Tomato
+Orange
+DodgerBlue
+MediumSeaGreen
+Gray
+SlateBlue
+Violet
+LightGray
+CSS Background Color
+You can set the background color for HTML elements:
+
+Hello World
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+Example
+<h1 style="background-color:DodgerBlue;">Hello World</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+
+CSS Text Color
+You can set the color of text:
+
+Hello World
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+Example
+<h1 style="color:Tomato;">Hello World</h1>
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+CSS Border Color
+You can set the color of borders:
+
+Hello World
+Hello World
+Hello World
+Example
+<h1 style="border:2px solid Tomato;">Hello World</h1>
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
+<h1 style="border:2px solid Violet;">Hello World</h1>
+CSS Color Values
+In CSS, colors can also be specified using RGB values, HEX values, HSL values, RGBA values, and HSLA values:
+
+Same as color name "Tomato":
+
+rgb(255, 99, 71)
+#ff6347
+hsl(9, 100%, 64%)
+Same as color name "Tomato", but 50% transparent:
+
+rgba(255, 99, 71, 0.5)
+hsla(9, 100%, 64%, 0.5)
+Example
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:#ff6347;">...</h1>
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+
+CSS RGB Colors
+RGB Value
+In CSS, a color can be specified as an RGB value, using this formula:
+
+rgb(red, green, blue)
+
+Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
+
+For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255) and the others are set to 0.
+
+To display black, set all color parameters to 0, like this: rgb(0, 0, 0).
+
+To display white, set all color parameters to 255, like this: rgb(255, 255, 255).
+
+Experiment by mixing the RGB values below:
+
+rgb(255, 99, 71)
+
+RED
+255
+        GREEN
+        99
+                    BLUE
+                    71
+Example
+rgb(255, 0, 0)
+rgb(0, 0, 255)
+rgb(60, 179, 113)
+rgb(238, 130, 238)
+rgb(255, 165, 0)
+rgb(106, 90, 205)
+
+Shades of gray are often defined using equal values for all the 3 light sources:
+
+Example
+rgb(0, 0, 0)
+rgb(60, 60, 60)
+rgb(120, 120, 120)
+rgb(180, 180, 180)
+rgb(240, 240, 240)
+
+CSS HEX Colors
+HEX Value
+In CSS, a color can be specified using a hexadecimal value in the form:
+
+#rrggbb
+
+Where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
+
+For example, #ff0000 is displayed as red, because red is set to its highest value (ff) and the others are set to the lowest value (00).
+
+Experiment by mixing the HEX values below:
+
+#ff6347
+
+RED
+ff
+      GREEN
+      63
+              BLUE
+              47
+Example
+#ff0000
+#0000ff
+#3cb371
+#ee82ee
+#ffa500
+#6a5acd
+
+Shades of gray are often defined using equal values for all the 3 light sources:
+
+Example
+#000000
+#3c3c3c
+#787878
+#b4b4b4
+#f0f0f0
+#ffffff
+
+CSS HSL Colors
+HSL Value
+In CSS, a color can be specified using hue, saturation, and lightness (HSL) in the form:
+
+hsl(hue, saturation, lightness)
+
+Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.
+
+Saturation is a percentage value, 0% means a shade of gray, and 100% is the full color.
+
+Lightness is also a percentage, 0% is black, 50% is neither light or dark, 100% is white
+
+Experiment by mixing the HSL values below:
+
+hsl(0, 100%, 50%)
+
+HUE
+0  
+          SATURATION
+          100%
+                        LIGHTNESS
+                        50%
+Example
+hsl(0, 100%, 50%)
+hsl(240, 100%, 50%)
+hsl(147, 50%, 47%)
+hsl(300, 76%, 72%)
+hsl(39, 100%, 50%)
+hsl(248, 53%, 58%)
+rgb(255, 255, 255)
+
+RGBA Value
+RGBA color values are an extension of RGB color values with an alpha channel - which specifies the opacity for a color.
+
+An RGBA color value is specified with:
+
+rgba(red, green, blue, alpha)
+
+The alpha parameter is a number between 0.0 (fully transparent) and 1.0 (not transparent at all):
+
+Experiment by mixing the RGBA values below:
+
+rgba(255, 99, 71, 0.5)
+
+RED
+255
+          GREEN
+          99
+                   BLUE
+                   71
+                              ALPHA
+                              0.5
+Example
+rgba(255, 99, 71, 0)
+rgba(255, 99, 71, 0.2)
+rgba(255, 99, 71, 0.4)
+rgba(255, 99, 71, 0.6)
+rgba(255, 99, 71, 0.8)
+rgba(255, 99, 71, 1)
