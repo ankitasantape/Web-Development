@@ -1,0 +1,146 @@
+Oooomm namah shivay!!!OOoom namah shivay!!!// implementation -> files / folder interact
+//   /directory
+//  files -> read / write/update/delete
+let fs = require("fs");
+let path = require("path");
+// let content = fs.readFileSync("f1.txt");
+// buffer -> video, audio, text
+// console.log("content : ", content);   
+// buffer store content in hexadecimal format
+//typecasting  + -> concatenate -> string => text
+// console.log("content : " + content);
+//  write -> writeFileSync
+//  file doesn't exist -> file create, content put
+//  file doesn't exist -> content override
+// fs.writeFileSync("abc.txt", "Oooomm namah shivay!!!");
+// update
+// fs.appendFileSync("abc.txt", "OOoom namah shivay!!!");
+// delete a file by passing it's path
+// fs.unlinkSync("abc.txt");
+// console.log("File removed");
+
+
+
+//------------ Directory/Folder ----------------
+// Directory
+// create
+fs.mkdirSync("myDirectory");
+// delete
+fs.rmdirSync("myDirectory");
+// path -> check does it exist or not
+let doesExist = fs.existsSync("fs1.js");
+console.log("This path exist ? ", doesExist);
+// path => belongs to a directory or file
+// C:\Users\Admin\OneDrive\Desktop\Dev\Module_1_FS>
+
+let statsOfAPath = fs.lstatSync("dir1");
+console.log("stats", statsOfAPath);
+console.log("is file? ", statsOfAPath.isFile());
+console.log("is Directory? ", statsOfAPath.isDirectory());
+// directory => content
+let address = "C:\\Users\\Admin\\OneDrive\\Desktop\\Dev\\Module_1_FS\\dir1";
+let content = fs.readdirSync(address);
+console.log("directory content ", content[0]);
+let fullpath = path.join(address, content[0]);
+
+statsOfAPath = fs.lstatSync(fullpath);
+console.log("stats", statsOfAPath);
+console.log("is file? ", statsOfAPath.isFile());
+console.log("is Directory? ", statsOfAPath.isDirectory());
+
+console.log(content[0] ," Length: ",content[0].length);
+statsOfAPath = fs.lstatSync(content[0]);
+console.log("stats", statsOfAPath);
+console.log("is file? ", statsOfAPath.isFile());
+console.log("is Directory? ", statsOfAPath.isDirectory());
+
+
+
+Hello this file one dot txt.let fs = require("fs");
+let path = require("path");
+let inputArr = process.argv.slice(2);
+//we will get a file directory as a input 
+let inputDir = inputArr[0];
+// we will get all the files and folder stored in inputDir
+let allEntities = fs.readdirSync(inputDir);
+// To store only files present in inpuDir into container
+let content = "";
+for(let i = 0; i < allEntities.length; i++){
+    // get the first file or folder
+    let entityName = allEntities[i];
+    // get full path of that file corresponding with inputDir
+    let fullPath = path.join(inputDir, entityName);
+    let statsOfAPath = fs.lstatSync(fullPath);
+    if (statsOfAPath.isFile()){
+        // the contents of all the files will be stored in the content variable
+        content += fs.readFileSync(fullPath);
+    }
+}
+
+let filePath = path.join(inputDir, "summary.txt");
+fs.writeFileSync(filePath, content);let path = require("path");
+let fs = require("fs");
+// path -> path -> platform independent
+// path.basename()
+// path.dirname()
+// path.extname()
+// path.join()
+/*
+Sample input :
+[ 0    1       2    3   4  5 ]   
+node path.js hello how are u
+Sample output :
+[ 'hello', 'how', 'are', 'u' ] */
+console.log(process.argv.slice(2));
+
+
+/*
+Input  : C:\Users\Admin\OneDrive\Desktop\Dev>node path.js tree     
+Output : [ 'tree' ]
+
+Input  : C:\Users\Admin\OneDrive\Desktop\Dev>node path.js tree C:\\Users\\Admin\\OneDrive\\Desktop\\Dev\\Module_1_FS\\dir1   
+Output : 
+[
+  'tree',
+  'C:\\\\Users\\\\Admin\\\\OneDrive\\\\Desktop\\\\Dev\\\\Module_1_FS\\\\dir1'
+]
+*/
+
+let inputArr = process.argv.slice(2);
+let fileName = inputArr[0];  // cmd : echo %cd%
+let content = inputArr[1]; // C:\Users\Admin\OneDrive\Desktop\Dev
+console.log("fileName", fileName);
+console.log("content", content);
+
+/*
+Input :
+C:\Users\Admin\OneDrive\Desktop\Dev>node path.js echo%cd% 
+C:\Users\Admin\OneDrive\Desktop\Dev
+Output : [
+  'echoC:\\Users\\Admin\\OneDrive\\Desktop\\Dev',
+  'C:\\Users\\Admin\\OneDrive\\Desktop\\Dev'
+]
+cmd echoC:\Users\Admin\OneDrive\Desktop\Dev
+path C:\Users\Admin\OneDrive\Desktop\Dev
+*/ 
+
+// current path of directory
+let currentpath = process.cwd();
+console.log("currentPath : ",currentpath)
+/*
+Output : currentPath :  C:\Users\Admin\OneDrive\Desktop\Dev 
+*/ 
+
+// path -> paths -> platform independent
+// let filePath = path.join(currentpath, "dir1", fileName);
+// console.log("filePath", filePath);
+// fs.writeFileSync(filePath, content);
+
+/*
+Input : 
+C:\Users\Admin\OneDrive\Desktop\Dev\Module_1_FS>node path.js hello.txt "Hello Everyone"
+fileName hello.txt
+Output :
+content Hello Everyone
+filePath C:\Users\Admin\OneDrive\Desktop\Dev\Module_1_FS\dir1\hello.txt
+*/ 
