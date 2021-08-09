@@ -77,6 +77,7 @@ function dataExtracter(html) {
 
     }
     // players name
+    
 }
 module.exports = {
     processSinglematch
