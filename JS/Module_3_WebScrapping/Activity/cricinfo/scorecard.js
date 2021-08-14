@@ -2,6 +2,8 @@
 let request = require("request");
 let cheerio = require("cheerio");
 let fs = require("fs");
+let path = require("path");
+let xlsx = require("xlsx");
 function processSinglematch(url) {
 
     request(url, cb);
@@ -70,6 +72,7 @@ function dataExtracter(html) {
                 let sixes = searchTool(numberofTds[6]).text().trim();
                 let sr = searchTool(numberofTds[7]).text().trim();
                 console.log(`${playerName} ${runs} ${balls} ${fours} ${sixes} ${sr}`);
+               processPlayer(teamName, playerName, runs, balls, fours,sixes, sr, opponentTeamName, venue, date, result);
             }
         }
         console.log("``````````````````````````````````````")
@@ -77,8 +80,50 @@ function dataExtracter(html) {
 
     }
     // players name
-    
 }
+
+function processPlayer(teamName, playerName, runs, balls, fours,sixes, sr, opponentTeamName, venue, date, result){
+      let teamPath = path.join(__dirname, "IPL", teamName);
+      dirCreater(teamPath);
+      let filePath = path.join(teamPath, playerName + ".xlsx");
+      let content = excelReader(filePath, playerName);
+      let playerObj = {
+          teamName, playerName, runs, balls, fours, sixes, sr, opponentTeamName, venue, date, result
+      }
+      content.push(playerObj);
+      excelWriter(filePath, content, playerName);
+}
+
+function dirCreater(filePath){
+    if (fs.existsSync(filePath) == false){
+        fs.mkdirSync(filePath);
+    }   
+}
+
+function excelWriter(filePath, json, sheetName) {
+    let newWB = xlsx.utils.book_new();
+    // // json data convert into excel format
+    let newWS = xlsx.utils.json_to_sheet(json);
+    // // newwb, ws, sheet name
+    xlsx.utils.book_append_sheet(newWB, newWS, sheetName);
+    // // filepath
+    xlsx.writeFile(newWB, filePath);
+}
+
+
+function excelReader(filePath, sheetName){
+    if(fs.existsSync(filePath) == false){
+        return [];
+    }
+    let wb = xlsx.readFile(filePath);
+    // name - sheet-1 - To get sheet
+    let excelData = wb.Sheets[sheetName];
+    // to get sheet data
+    let ans = xlsx.utils.sheet_to_json(excelData);
+    return ans; 
+    // console.log(ans);
+}
+
 module.exports = {
     processSinglematch
 }
