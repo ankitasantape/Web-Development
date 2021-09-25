@@ -1,0 +1,43 @@
+What is WebScrapping ?
+
+Almost all the information on the web exists in the form of HTML pages. 
+The information in these pages is structured as paragraphs, headings, lists, or one of the many other HTML elements. 
+These elements are organized in the browser as a hierarchical tree structure called the DOM (short for Document Object Model). 
+Each element can have multiple child elements, which can also have their own children.  
+This structure makes it convenient to extract specific information from the page.
+
+The process of extracting this information is called "scraping" the web, and it’s useful for a variety of applications. 
+All search engines, for example, use web scraping to index web pages for their search results. 
+We can also use web scraping in our own applications when we want to automate repetitive information gathering tasks.
+
+Why Cheerio
+There are many other web scraping libraries, and they run on most popular programming languages and platforms. 
+What makes Cheerio unique, however, is its jQuery-based API.
+
+jQuery is by far the most popular javascript library in use today. It's used in browser-based javascript applications to traverse and manipulate the DOM. For example, if your document has the following paragraph:
+
+<p id="example">This is an <strong>example</strong> paragraph</p>
+You could use jQuery to get the text of the paragraph:
+
+const txt = $('#example').text()
+console.log(txt)
+// Output: "This is an example paragraph"
+The above code uses a CSS selector #example to get the element with the id of "example". The text method of jQuery extracts just the text inside the element (the <strong> tags disappeared in the output).
+
+The jQuery API is useful because it uses standard CSS selectors to search for elements, and has a readable API to extract information from them. jQuery is, however, usable only inside the browser, and thus cannot be used for web scraping. Cheerio solves this problem by providing jQuery's functionality within the Node.js runtime, so that it can be used in server-side applications as well. Now, we can use the same familiar CSS selection syntax and jQuery methods without depending on the browser.
+
+The Cheerio API
+Unlike jQuery, Cheerio doesn't have access to the browser’s DOM . Instead, we need to load the source code of the webpage we want to crawl. Cheerio allows us to load HTML code as a string, and returns an instance that we can use just like jQuery.
+
+Let's look at how we can implement the previous example using cheerio:
+
+// Import the Cheerio library
+const cheerio = require('cheerio')
+
+// Load the HTML code as a string, which returns a Cheerio instance
+const $ = cheerio.load('<p id="example">This is an <strong>example</strong> paragraph</p>')
+
+// We can use the same API as jQuery to get the desired result
+const txt = $('#example').text()
+console.log(txt)
+// Output: "This is an example paragraph"
