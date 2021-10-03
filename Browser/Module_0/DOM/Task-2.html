@@ -1,0 +1,50 @@
+<!-- 
+  * HTML Collections Vs NodeList Vs Array
+    * querySelector() -> selects an element
+    * querySelectorAll() -> returns NodeList (returns Array Representation but not return actual array list) [li, li, li , li.... ]
+    * 0, 1, 2, ... - indexing 
+    * length - length of node list
+    * nodelist - It returns array representation only not an array that's why we can't apply functionalities of array
+               - can't use functionalities like map(), reduce(), for each loop
+    * HTML Collections - Representation of array elements
+                       - can't use functionalities like map(), reduce(), for each loop 
+       * Property of HTML Collections :
+        -  return children property 
+        -  provides method insertBefore()[parent, reference, newNode]        [Refer MDN docs]
+    * but we can apply for loop iteration 
+      for (let i = 0; i < nodeLists.length; i++){....}
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <ul>
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+         <li>4</li>
+         <li>5</li>
+         <li>6</li>
+         <li>8</li>
+         <li>9</li>
+         <li>10</li>
+     </ul>
+     <script>
+        //  Fix the list by inserting the missing element using querySelectorAll, insertBefore
+            let lis = document.querySelectorAll("li");
+            // console.log(lis.length);
+            let sevenNode = document.createElement("li");
+            sevenNode.innerText = '7';
+            let uls = document.querySelector("ul");
+            let eightNode = lis[6];
+            // console.log(eightNode);
+            uls.insertBefore(sevenNode, eightNode);
+     </script>
+ </body>
+ </html>

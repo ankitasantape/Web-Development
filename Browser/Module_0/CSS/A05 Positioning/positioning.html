@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           *{
+                box-sizing: border-box;
+           }
+            body{
+                margin: 0;
+                padding: 0;
+                height: 300vh
+            }
+            .box{
+                width: 100rem; 
+                height: 10rem;
+                /* display: space-between; */
+            }
+            .box-1{
+                background-color: aquamarine;
+                position:fixed;
+                height: 30rem;
+                width: 50rem;
+                top:10rem;
+                left:20rem;
+            }
+            .box-2{
+                background-color: lightcoral;
+                /* position: relative;
+                top: 0.01rem;
+                left: 10rem; */
+            }
+            .box-3{
+                background-color: lightgreen;
+                /* position: absolute;
+                top:30rem;
+                left: 10rem; */
+            }
+            .box-4{
+                background-color: lightpink;
+                /* position: fixed;
+                top: 20rem;
+                left: 20rem; */
+            }
+            .box-5{
+                background-color: lightgrey;
+                /* position: static;
+                top: 10rem;
+                left: 20rem; */
+            }
+            .child-container{
+                background-color: rgb(239, 245, 160);
+                position:sticky;
+                height: 7rem;
+                top:3rem;
+                left:8rem;
+               
+            }
+
+    </style>
+</head>
+<body>
+
+    <div class="box box-1">I'm fixed <br> Parent div
+        <div class="child-container">Child div <br>1. I'm sticky <br> i. Natural flowing <br> ii. ( relative + fixed ) <br>iii.  Scrolling doesn't affect me <br> iv. Works only within container(by default body or parent)</div>
+         Eg. Chat boot
+    </div>
+    <div class="box box-2">2. I'm relative, natural flowing</div>
+    <div class="box box-3">3. I'm absolute, natural flow doesn't maintain</div>
+    <div class="box box-4">4. I'm fixed</div>
+    <div class="box box-5">5. I'm static</div>
+    
+</body>
+</html>

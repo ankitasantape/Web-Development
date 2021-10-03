@@ -1,0 +1,153 @@
+<!--  Children Vs ChildNodes
+  * Style -> objet => DOM ke through you can perform CSS styling on HTML element
+          -> we can apply and access font family, bgcolor, color using style object
+        eg.
+          <ul>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+           </ul>
+  * ParentElement -> ul -> reference         
+  * children -> returns HTMLCollection (Array Representation ["li", "li", ....."li"] access through 0-based indexing)
+             -> will returns only liElem[ ] 
+             -> can't apply forEach()
+  * childNodes -> returns nodelist(Array Representation but not an array ["li","li",....,"li"])
+               -> will return all data [li, li, commentnode data, textnode data, list of li elems]
+               -> can apply forEach()
+ * All HTML elements are nodes. But all nodes are not HTML elements.
+      -> div is a node but in background node convert into the form of object that object known as html element  
+      -> in background representation is in the form of object but it visible on browser in the form of html element           
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 5rem;
+      }
+      .movies {
+        height: 10rem;
+        width: 10rem;
+        margin: 2rem;
+      }
+      .price {
+        background-color: rgb(247 84 33);
+        height: 8rem;
+        padding: 1.5rem;
+        font-size: 2rem;
+      }
+      .heading {
+        background-color: rgba(0, 0, 0, 0.856);
+        height: 2rem;
+      }
+
+      .heading,
+      .price {
+        color: white;
+        text-align: center;
+        margin: 0;
+      }
+
+      select,
+      h1 {
+        position: fixed;
+      }
+      h1 {
+        top: 0px;
+      }
+      select {
+        width: 8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BOOK MY SHOW</h1>
+    <select>
+      <option value="none">None</option>
+      <option value="action">Action</option>
+      <option value="romance">Romance</option>
+      <option value="comedy">Comedy</option>
+    </select>
+    <div class="movies">
+      <h3 class="heading">Example-1</h3>
+      <p class="price" data-category="action">Rs. 100</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-2</h3>
+      <p class="price" data-category="action">Rs 200</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-3</h3>
+      <p class="price" data-category="action">Rs. 150</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-4</h3>
+      <p class="price" data-category="romance">Rs 200</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-5</h3>
+      <p class="price" data-category="romance">Rs. 150</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-6</h3>
+      <p class="price" data-category="romance">Rs. 150</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-7</h3>
+      <p class="price" data-category="action">Rs 200</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-8</h3>
+      <p class="price" data-category="comedy">Rs. 100</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-9</h3>
+      <p class="price" data-category="romance">Rs. 100</p>
+    </div>
+    <div class="movies">
+      <h3 class="heading">Example-10</h3>
+      <p class="price" data-category="comedy">Rs 200</p>
+    </div>
+    <script>
+      // Q Make the filter work
+        let select = document.querySelector("select");
+        let moviesList = document.querySelectorAll(".movies");
+        select.addEventListener("change",  (event) => {
+             let selectMovieType = select.value;
+             if(selectMovieType === 'none') {
+              //  display all
+                 moviesList.forEach( (movie) => {
+                   movie.style.display = "block";
+                 })
+             } else {
+              //  display filter
+                 console.log(moviesList.length);
+                 for (let i = 0; i < moviesList.length; i++) {
+                     let ptag = moviesList[i].querySelector("p");
+                     let category = ptag.getAttribute("data-category");
+                     console.log(category + " " + selectMovieType)
+                     if(category === selectMovieType){
+                        moviesList[i].style.display = "block";
+                     } else {
+                        moviesList[i].style.display = "none";
+                     }
+                 }
+             }
+        })
+     
+    </script>
+  </body>
+</html>

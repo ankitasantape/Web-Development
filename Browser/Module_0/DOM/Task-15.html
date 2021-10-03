@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .balls {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .ball {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: none;
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="balls">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <script>
+      // Q Make a loading animation using the above 5 balls and JS
+     //  Game of illusion => 1.Display  2.Hide
+    //  Previous -> display, Current -> Hide ....
+      // Solution:
+        
+       let balls = document.querySelectorAll(".ball");
+    //    console.log(balls.length);
+       function load(index){
+        //    for continuous animation
+           index = index % balls.length;
+           let currBall = balls[index];
+           let prevBall; 
+           if(index > 0){
+              prevBall = balls[index - 1];
+           } else {
+              prevBall = balls[balls.length - 1];
+           }
+            //    hide - current
+            currBall.style.opacity = 0;
+            //    display - previous
+            prevBall.style.opacity = 1; 
+
+           setTimeout(function(){
+              load(index + 1);
+           }, 200)
+       }
+
+       load(0);
+    </script>
+  </body>
+</html>

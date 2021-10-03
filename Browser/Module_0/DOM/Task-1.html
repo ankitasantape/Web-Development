@@ -1,0 +1,37 @@
+<!-- 
+  * addEventListeners (Browser)
+    -> Keyboard
+    -> Mouse
+    -> Async data 
+    we have been provided global object document.
+    Properties : 
+         * querySelector() -> helps to get reference of single node (just like reference of button)
+         * innerText -> "_ (empty)  _ " (eg. <div> (empty) </div> we can fill content between <div>..</div> through innerText = "---" )
+         * createElement('div') (eg. createElement helps to create new tag like <div> ... </div>, <span> ... </span>, a, img, etc)
+         * appendChild() (eg. appendChild helps to to append child to global dom obj or curr node)
+         * 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <button>SayHello</button>
+     
+     <script>
+        // Q. On clicking the button append hello to the page 
+         let button = document.querySelector("button");
+         button.addEventListener("click", function(e) {
+             let divElem = document.createElement("div");
+             divElem.innerText = "Hello!!!";
+             let body = document.querySelector("body");
+             body.appendChild(divElem);
+         })
+
+     </script>
+ </body>
+ </html>

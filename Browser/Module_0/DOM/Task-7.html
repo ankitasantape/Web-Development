@@ -1,0 +1,114 @@
+<!-- Browser Events | Bubbling, Capturing, Target | Event Phases  -->
+<!-- 
+    Events - Phases 
+           - Properties
+           - Propagation (means ki inko kaise stop kiya jaye)
+    Event Phases - Capturing
+                 - Target       
+                 - Bubbling -> by default bubbling is active
+
+    Eg. We(source) order a cake from the store(destination) but we have to bring cake from the store so this is the target
+        The state of going from src to dest is capturing.             
+        The state of coming back from dest to src is bubbling.       
+    
+    * If listener on its path finds same event then it triggers it as well.
+    
+    Event Properties -
+      -> Target : Element which triggers the event 
+      -> CurrentTarget : Element on which listener event is attached
+    Event Phase : e.EventPhase returns 0, 1, 2, 3
+       0 -> NONE
+       1 -> Capturing phase
+       2 -> Target phase
+       3 -> Bubbling phase
+  * More than 1 listener(same, different)
+    Propagation :
+      -> stopPropagation() -> prevents bubbling
+      -> stopImmediatePropagation() -> prevents sibling level & bubbling phase
+     
+      
+url : "https://javascript.info/bubbling-and-capturing" 
+ 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+          border: 1px solid;
+        }
+        .red {
+          padding: 2rem;
+          height: 30rem;
+          width: 30rem;
+          background-color: red;
+        }
+  
+        .yellow {
+          height: 10rem;
+          width: 10rem;
+          margin: auto;
+          background-color: yellow;
+          margin-top: 5rem;
+        }
+        .blue {
+          height: 20rem;
+          width: 20rem;
+          margin: auto;
+          background-color: rgb(21, 17, 247);
+          margin-top: 5rem;
+        }
+      </style>
+</head>
+<body>
+    <div class="red">
+        <div class="blue">
+            <div class="yellow"></div>
+        </div>
+    </div>
+    <script>
+        //Q The following code is broken. Even when clicked on yellow, its alerted that red is clicked. Fix it
+        let red = document.querySelector(".red");
+        let blue = document.querySelector(".blue");
+        let yellow = document.querySelector(".yellow");
+  
+        // Bydefault bubbling is on and capturing is off
+        // if we switch on the capturing phase then it will show captured div 
+        // red.addEventListener("click" , (e) => {
+        //   alert("red was clicked");
+        // }, true);
+
+        red.addEventListener("click" , (e) => {
+            if(e.target === e.currentTarget) {
+                alert("Red was clicked");
+            } 
+             // console.log(e.target, e.currentTarget);
+            //  alert(e.eventPhase); 
+        });
+
+        blue.addEventListener("click", (e) => {
+               //   alert("blue 1 was clicked");
+              //   e.stopPropagation();
+          if(e.target === e.currentTarget){
+               alert("Blue was clicked"); 
+          } 
+           //   console.log(e.target, e.currentTarget);
+          e.stopImmediatePropagation();
+        });
+
+        blue.addEventListener("click", (e) => {
+          alert("blue 2 was clicked");  
+        });
+
+        yellow.addEventListener("click", (e) => {
+          alert("yellow was clicked");
+        });
+  
+    </script>
+</body>
+</html>

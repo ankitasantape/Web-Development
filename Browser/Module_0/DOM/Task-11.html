@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursive Div</title>
+    <style>
+      div {
+        margin: 2rem;
+        min-height: 5rem;
+        min-width: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="border:50px solid rgb(230, 31, 31)">
+      <div style="border: 40px solid black">
+        <div style="border: 30px solid green">
+          <div style="border: 20px solid blue"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Q- Write a script using the method querySelector that goes into lowest depth div and deletes it. Alternatively also write one line non recursive solution using querySelectorAll
+
+      // 1. Solution using querySelector (iterative):
+        //  let divEle = document.querySelector("div");
+        //  while(divEle.children.length > 0) {
+        //      divEle = divEle.children[0];
+        //  }
+        //  divEle.remove();
+
+      // 2. Solution using querySelector (recursive):
+
+    //    let divEle = document.querySelector("div");
+    //    function removeDeepest(divEle){
+    //        if (divEle.children.length > 0) {
+    //         removeDeepest(divEle.children[0]);
+    //        } else {
+    //            divEle.remove();
+    //        }
+    //    }
+    //    removeDeepest(divEle);
+
+      // 3. One-liner Solution using querySelectorAll :
+      document.querySelectorAll("div")[3].remove()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!-- Difference in Sibling Nodes And Sibling Elements
+     * Previous Element Sibling -> returns HTML element
+     * Next Element Sibling -> returns HTML element
+     * Previous Sibling -> returns node 
+     * Next Sibling -> returns node
+
+     <div>
+           <div>1 </div>
+           <div>2 </div>  ---   Previous
+           #Comment     ---   Previous
+           <div>3 </div>"\n" --- Target
+           <div>4 </div>  ---    Next
+           <div>5 </div>
+           <div>6 </div>
+     </div> 
+     
+     3 --PES-> 2  |  3 --PS-> 2  |  3 --PS-> Comment 
+
+     3 --NES-> 4  |  3 --NS-> 4  |  3 --NS-> "\n"
+
+    Eg. of Node => "___", #comment, "\n" , text , HTML Element
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 5rem;
+      }
+
+      .red {
+        background-color: red;
+      }
+      .card {
+        border: 1px solid;
+        height: 10rem;
+        width: 10rem;
+        margin: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card red"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+    <script>
+      //  Q Create a generic function to select 
+    //   all sibling of a given node. Using that 
+    // function delete all siblings of red card
+
+      //   Solution:
+
+    let redElemNode = document.querySelector(".red"); 
+    let cardsList = document.querySelectorAll(".card");
+    cardsList.forEach( (card) => {
+        if (card !== redElemNode){
+            card.remove();
+        }
+    })
+    
+    // deleteAllSiblings(redElemNode);
+    
+    
+    //   create generic function
+    function deleteAllSiblings(redElem){
+        let before = redElem.previousElementSibling;
+        let after = redElem.nextElementSibling;
+
+        while(before){
+            before.remove();
+            before = redElem.previousElementSibling;
+        }
+
+        while(after){
+            after.remove();
+            after = redElem.nextElementSibling;
+        }
+    }
+
+    </script>
+  </body>
+</html>
