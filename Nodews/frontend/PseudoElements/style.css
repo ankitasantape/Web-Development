@@ -1,0 +1,51 @@
+/* p::first-letter{
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+} */
+
+/* p::first-line{
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+} */
+
+.styled-first-letter{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+ul{
+    list-style: none;
+
+}
+li::before{
+    content: '';
+    background-image: url("/web/static/LOGO-05.png");
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-size:contain;
+}
+
+p{
+    background-color: aqua;
+}
+p::before{
+     content: 'Before';
+     font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+p::after{
+    content: '';
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-size: contain;
+    background-image: url("/web/static/LOGO-05.png");
+    font-size: 1.5rem;
+   font-weight: bold;
+   text-transform: capitalize;
+}

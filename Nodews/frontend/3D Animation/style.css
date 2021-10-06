@@ -1,0 +1,210 @@
+
+@keyframes changeShape{
+    /* inplace of "from" we can use 0% and inplace of "to" we can use 100% */
+     from { 
+         border-radius: 0%;
+     }
+     25%{
+         border-radius: 12.5%;
+     }
+     50%{
+        border-radius: 25%;
+     }
+     to {
+         border-radius: 50%;
+     }
+}
+
+#div1{
+    height: 100px;
+    width: 100px;
+    /* position: absolute; */
+    /* top: 20%;
+    left: 20%; */
+    background-color: aqua;
+    /* transform: rotateX(120deg); */
+    /* transform: rotateY(120deg); */
+    /* transform: rotate(120deg);
+    transform: scale(2.3,7.8);
+    transform: scale(7.8);
+    transform: translate(100px,100px);
+    transform: translate(100%,10%); */
+    /* Transition ease-in-out means transition start smoothly and end smoothly */
+    /* transition: 1s ease-in-out; */
+    /* transition: height 1s ease-in-out; */
+    /* transition: height 1s ease-in-out o.8s; */
+    /* Transition ease-in means transition start smoothly but end little bit abrupt */
+    /* Transition ease-out does transition end smoothly but start little  bit abruptly */
+    /* transition: linear; */
+    /* transition: 1s steps(6, end); */
+    /* increase number of steps to do fast hovering  */
+    animation: changeShape 2s ease-in-out 10;
+    
+}
+
+/* div:hover{ */
+    /* height: 400px; */
+    /* width: 400px; */
+    /* transform: scale(1.5) translate(150px); */
+    
+/* } */
+
+/* #lightbox{
+    height: 0;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: all 2s ease-in-out;
+}
+#lightbox:target{
+    height: 30%;
+    width: 30%;
+    top: 25%;
+    left: 25%;
+    background-color:lightgray;
+} */
+#div2{
+    height: 100px;
+    width: 100px;
+    /* position: absolute; */
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(0, 255, 157);
+    animation: changeShape 1s ease-in-out 12;
+} 
+#div3{
+    height: 100px;
+    width: 100px;
+    position: relative;
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(0, 110, 255);
+    animation: changeShape 2s ease-in-out 13;
+} 
+#div4{
+    height: 100px;
+    width: 100px;
+    position: relative;
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(229, 255, 0);
+    animation: changeShape 1s ease-in-out 14;
+}   
+#div5{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(255, 94, 0);
+    animation: changeShape 2s ease-in-out 15 alternate;
+} 
+#div6{
+    height: 100px;
+    width: 100px;
+    /* position: absolute; */
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(255, 0, 200);
+    animation: changeShape 1s ease-in-out 16;
+} 
+#div7{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(183, 0, 255);
+    animation: changeShape 2s ease-in-out 17 alternate;
+} 
+#div8{
+    height: 100px;
+    width: 100px;
+    /* position: absolute; */
+    /* top: 20%;
+    left: 20%; */
+    background-color: rgb(255, 0, 43);
+    animation: changeShape 1s ease-in-out 18;
+} 
+
+.elementToFadeInAndOut {
+    width:200px;
+    height: 200px;
+    background: red;
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+  25% { opacity: 10; }
+}
+
+@keyframes fadeinout {
+    0%,100% { opacity: 0; }
+  50% { opacity: 15; }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% { 
+         transform: rotate(360deg);
+    }
+}
+@keyframes resize {
+    from {
+        height: 200px;
+        width: 200px;
+    }
+    to{
+        height: 100px;
+        width: 100px;
+    }
+}
+.rotateBox{
+     /* height: 100px;
+    width: 100px;
+    top: 40%;
+    left: 40%;
+    background-color: aquamarine;
+    overflow: hidden; */
+   position: absolute;
+   transition-duration: 1s;
+   transition-property : transform;
+   /* This is shorthand property */
+   /* animation: rotate 1s infinite; */
+   /* If you have to add multiple properties */
+   animation-name: changeShape, rotate, resize;
+   animation-duration: 0.5s, 0.5s, 0.5s ;
+   animation-iteration-count: infinite,infinite,infinite;
+   animation-direction: alternate,alternate,alternate;
+}
+/* .rotate:hover{
+    transform: rotate(360deg);
+    -webkit-transform : rotate(360deg)
+} */
+
+.one.animate__jello {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    background-color: aquamarine;
+    
+}
+
+.two.animate__bounce {
+    height: 100px;
+    width: 100px;
+    position:absolute;
+    top: 20%;
+    left: 20%;
+    background-color: aquamarine;
+    
+}

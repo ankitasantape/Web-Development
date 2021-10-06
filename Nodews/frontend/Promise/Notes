@@ -1,0 +1,30 @@
+What is a Promise?
+A promise is something that introduce in ES6 and behaviour and expectations are same as its name.
+So, a promise is basically that promising to do something.
+A promise is an object that eventually indicate the success and failure of an asynchronous task.
+
+Why?How promises help?
+Chaining Request: 
+So, promises actually save us from callback help.
+Callback is actually a scenario that happened when end up calling lot of Chaining asynchronous Request
+
+S0, this is what we call it as callback help, means we are calling one request after the other.
+$.ajax({
+    success: function(){
+        $.ajax({
+            success: function(){
+                $.ajax(){
+
+                }
+            }
+        })
+    }
+})
+ 
+ To avoid this Chaining, promises help us in this kind of situation
+ If any promise is unsuccessful you will get into catch
+ Code is lot more readable
+        promise1.then().then().then().catch()
+
+        checkUserLoggedIn().then(fetchUserFeed).then(fetchUserFriends).then(fetchUserMessages)
+

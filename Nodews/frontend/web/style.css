@@ -1,0 +1,110 @@
+p{
+    color: blue;
+    font-size: 20px;
+    /* font-family: sans-serif; */
+}
+
+h1{
+    color: brown;
+    font-size: 52px;
+    /* font-family: sans-serif; */
+}
+
+h1, p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* .uppercase{
+    /* text-transform: uppercase; 
+} */
+
+/* .cursive{
+    /* font-family: 'Courier New', Courier, monospace; 
+} */
+
+li h4{
+    text-transform: uppercase;
+    font-family: cursive;
+}
+
+#site-desc p{
+    color: red;
+}
+
+#blog-desc{
+    color: rgb(254 11 101);
+}
+
+#blog-title:hover{
+    color: orange;
+}
+
+.color-red{
+    color: red;
+}
+
+#para-id{
+    color: blueviolet;
+}
+
+#outer-div1{
+    height:200px;
+    /* height: 200vh;  */
+    /* height: 75vh;  */
+    width: 200px;
+    /* width: 100vw; */
+    /* height: 15rem;
+    width: 15rem; */
+   background-color:yellow;
+   /* border-width: 2px; */
+   /* border-width: 2px, 4px, 6px,8px;
+   border-style: solid;
+   border-color: red;
+   border-radius: 4px; */
+   /* margin: 4px; margin - outside the order & padding - inside th border*/
+   /* padding: 20px; */
+}
+
+#inner-div1{
+    /* height: 50%;
+    width: 50%; */
+    height: 200px;
+    width: 200px;
+    background-color: cyan;
+}
+
+#outer-div2{
+    height: 200px;
+    width: 200px;
+    background-color: orange;
+}
+
+span{
+    display: block;
+}
+
+div{
+    /* display: inline; */
+    display: inline-block;
+}
+#sample-para{
+    /* border: 2px solid red; */
+    /* border-left: 4px solid red; */
+    font-size: 30px;
+    color: blue;
+    font-weight: boldest;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+#logo-img-container{
+    height: 100vh;
+    width: 100vw;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("static/Five-tips-for-front-end-web-development.jpg");
+    background-attachment: scroll;
+}
+

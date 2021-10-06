@@ -1,0 +1,30 @@
+.icon-bar{
+    width: 90px;   /*set a specific width to the icon*/
+    background-color: #555;
+}
+
+.icon-bar a{
+    /* Make the link of blocks appear below each other instead of side-by-side  */
+     display: block;
+
+     /* align text center */
+     text-align: center;
+     /* set the distance between text and border */
+     padding: 16px; 
+     /* add transition for hover effect */
+     transition: all 0.3s ease;
+     /* color of icon */
+     color: white;
+     /* font size */
+     font-size: 30px;
+}
+
+.icon-bar a:hover {
+    /* Add a hover color when we click on icon it changes it's color to black */
+    background-color: #000;
+}
+
+.active{
+    background-color: #04AA6D;
+    
+}

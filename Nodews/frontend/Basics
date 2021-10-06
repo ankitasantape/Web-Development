@@ -1,0 +1,46 @@
+Responsive Design:
+3. Measurement Unit of Responsive Designs
+There are 2 broad categories of Measurement Unit
+  Absolute         Relative 
+   px(pixel)       %(percentage) ( generally, % & vh/wh used with dimension)
+   in(inches)      vh(viewport height)/vw(viewport width)
+   mm(milimeter)   rem / em ( are used while dealing with sizes/text part)
+4. viewport meta tag : viewport is the area of the window where web content can be save in simple term this is the visible area of the visible image
+   How does browser can gets this viewport of smallsize?
+   How does browser look on 360px screen ? 
+   How does browser renders the page on 360px screen?
+   browser does render the page on virtual viewport , so this virtual view is generally wider than the target device that you actually want to page on so this virtual viewport is wider 900px wide and then browser zooms out this page continuously till it fits the desired size and same in case of mobile view. 
+   
+5. Media Queries : It gives lot more flexibility and freedom and control which css rule should apply based on the device type and device properties.
+   Eg. If device width is 600px or smaller I can say this is the set of rules that should apply but if device width is 100px that means it's a wider screen relatively then th different set of css rule should apply control the design and how users are can see that control to see that design.
+   This is what we able to achieve media Queries.Every media query will have actually 2 component, the first component is the
+   1) Media type        2) Media property
+    - Screen            - width - if you want to focus on
+    - Print             - height
+    - Speech            - screen resolution 
+    - All 
+6. How to write media queries : @media screen and ( max-length: 600px ) - if you want that this query should apply on screen and if width < 600px then this rule will apply
+7. Desktop First vs Mobile First : 
+  Desktop First View : Desktop View --> Ipad view --> Mobile view 
+  Mobile First View : Mobile View --> Ipad View --> Desktop view (if number of visitors traffic came from mobile them mobile view will be the first priority )  
+
+  CSS Variables Scope:
+  Variables in CSS is not programming Variables it is a custome property.
+
+  Git : Git is a version control system.
+  Let's say you are a developer working on a project - a social media website and you need to role out certain development feature A, B, C, D, E,
+               This is the TimeLine of your project and you rolling out different feature
+                           [ GIT   ]          
+                          /    |    \
+                         /     |     \
+                        /      |      \
+                       /       |       \
+                      /        |        \
+  Rollout feature    A---------B---------C------------D------------E--------------------------TimeLine 
+                                               [ Comment ]    [ 
+                                                  Likes ]
+  When rolled out feature A is acquired by some users but when you rolled out feature B suddenly multiplied by 100, then rolled out feature C is again multiplied by 100 then as soon as feature D is multiplied as user base suddenly something breaks (D is the feature of Likes, C is for Comment )and Likes is breaking currently the thing that is now you have to fix this bug.
+  What happens during that time? You loose out of that users if you are trying to fix this bug this 100 users already facing that bug so a good usecase would be a good solution would be that you go back to feature C then fix it and go out again.
+  Everytime I rolled out I saved it and keep a copy of it ( A then A+B then A+B+C then A+B+C+D ) but it is difficult becoz there are whole lot of data.
+  Another solution what if I said someone or watching over my repository told that person dude whenever I rolled out a feature just notedown on a file or on a set of files which files do I change, so when I rolled out A I created a folder, when I rolled out B the feature was about post so I created file like post.html, when I rolled out to C I did some changes to post and also I created Comment.html.
+  Similarly, for this person which is called GIT noting down all this changes Everytime I make a change it noting down.

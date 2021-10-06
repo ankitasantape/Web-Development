@@ -1,0 +1,53 @@
+html{
+    font-size: 15px;
+}
+
+#div1{
+    /* For responsive perspective this is not the good width ideally what should have is whatever the screen size is. we should be able to see complete content in the entire paragraph within that screen size so tha you don't have scroll horizontally 
+       So we can do that by using relative unit using % instead of px, so 60% of the width should occupy by the content */
+    /* width with 1100px provide a fixed layout */
+    /* width: 1100px; */
+    /* So using relative unit is the best to get responsive webpage  */
+    /* width with 60% provide a fluid layout, which is better than the fixed layout but not that much it also has it's pros and cons  */
+    width: 60%; 
+    /* In case of image width : 60% might not be that good when layout is too small or too big image might be pixelet
+       We can explore other unit also rem/em those were used more for the perspective of text-size or font */
+    /* padding: 5px; */
+    border: 1px solid black;
+}
+
+/* Media Queries */
+/* This approach is for desktop view only */
+@media screen and (max-width: 900px) {
+    #div1{
+        width: 90%;
+        
+    }
+ }
+
+@media screen and (max-width: 600px) {
+   #div1{
+       width: 100%;
+
+   }
+}
+
+#div2{
+    /* initially width should be 100% */
+    width: 100%;
+    border: 1px solid black;
+}
+/* This approach is for mobile view only */
+/* Starting from mobile device */
+
+@media screen and (min-width : 600px){
+    #div2{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width : 900px){
+    #div2{
+        width: 60%;
+    }
+}
