@@ -69,17 +69,29 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #f2f2f2;
 }
+/* .lock-container, .unlock-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f2f2f2;
+} */
 
 /* icons are treated as text */
 .fa-plus, .fa-times{
-    font-size: 2rem;
+    font-size: 1.8rem;
     /* boldness */
     font-weight:400;
 }
 
+/* .fa-lock, .fa-unlock{
+    font-size: 0.4rem;
+    font-weight: lighter; 
+} */
+
 /* input styling */
-.task_input{
+.task-input{
     color:white;
 }
 
@@ -91,9 +103,14 @@ body{
     /* 100% height of the visible screen -> 100vh; */
      /* main height = total height - header height  */
       /* dynamically height change krni hai with respect to main page    */
-    height: calc(100vh - 3.5rem);
+    height: calc(100vh - 2.5rem);
     background-color: #f2f2f2;
     padding: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    
 } 
 .task-container{
     /* border: 1px solid black; */
