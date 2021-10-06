@@ -1,0 +1,65 @@
+
+.header-class{
+    width: 100%;
+    height: 60%;
+    border: 1px solid gainsboro;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    background-image: url(images/601914.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+.header-class h1{
+    color: white;
+}
+
+.header-class p{
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+nav{
+     display: flex;
+     background-color: rgb(173, 182, 184);
+     width: 100%;
+     
+}
+
+section{
+    float: left;
+    background-color: greenyellow;
+    width: 75%;
+    padding-right: 10px
+}
+
+article{
+    float: left;
+    background-color:blue;
+    width: 75%;
+    padding-right: 10px
+}
+
+aside{
+    float: right;
+    background-color:aqua;
+    width: 20%;
+    border: solid 1px gray;
+   
+}
+
+footer{
+    float: left;
+    background-color: grey;
+    width: 100%;
+} 
+
+#content{
+    position: relative;
+    align-content: center;
+    background-color: rgb(185, 250, 250);
+    border: 4px solid greenyellow;
+}
