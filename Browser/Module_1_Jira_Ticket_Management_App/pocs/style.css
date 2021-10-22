@@ -1,0 +1,65 @@
+body{
+    justify-content: center;
+    margin: 1rem;
+}
+*{
+    box-sizing: border-box;
+}
+.modal-container{
+    height: 20rem;
+    width: 40rem;
+    position: fixed ;
+    top: calc( 50% - 10rem ); 
+    left: calc( 50% - (40/2)rem);
+    background: #3d3a3a;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    display: flex;
+}
+
+.input-container{
+    height: 100%;
+    width: 65%;
+    padding: 2rem;
+}
+
+.input-container-text{
+    outline: none;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+
+
+.color-container{
+    /* relative unit which derived it's value from the parent element */
+    height: 100%;
+    width: 35%;
+    background-color: rgb(87, 82, 85);
+    padding: 1.5rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.color{
+    height : 3rem;
+    width: 6rem;
+}
+.selected{
+    border: 5px solid rgb(240, 233, 233);
+}
+.pink{
+   background-color: lightpink;
+}
+.green{
+    background-color: lightgreen;
+}
+.blue{
+    background-color: lightblue;
+}
+.black{
+    background-color: rgb(236, 247, 176);
+}
+
