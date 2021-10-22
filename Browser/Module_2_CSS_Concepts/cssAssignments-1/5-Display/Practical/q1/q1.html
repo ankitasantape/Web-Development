@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+              background-color: #00539F;
+        }
+        body{
+            width: 600px;
+            /* When you set two values on a property like margin or padding, the first value affects the element's top and bottom side (setting it to 0 in this case); the second value affects the left and right side.(Here, auto is a special value that divides the available horizontal space evenly between left and right) */
+            margin: 0 auto;
+            background-color: #FF9500;
+            /* top: 0px, right: 20px, bottom: 20px, left: 20px*/
+            padding: 0 20px 20px 20px; 
+            border: 9px solid black;
+        }
+        h1 {
+            margin: 0;
+            /* heading's top and bottom padding */
+            padding: 20px 0;
+            color: #00539F;
+            /* 1st value- horizontal offset : how far it moves across */
+            /* 2nd value- vertical offset : how far it moves down */
+            /* 3rd value- blur radius : a larger value produces a more fuzzy-looking shadow  */
+            /* 4th value- sets the base color of the shadow*/
+            text-shadow: 3px 3px 1px black;
+        }
+        img{
+            display:block;
+            margin: 0 auto;
+            height:30rem;
+            width:36rem;
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+        <h1>Hello, world!</h1>
+         <img src="img.png">
+</body>
+</html>
