@@ -90,8 +90,8 @@ sticky.addEventListener("click", (e) => {
      
      let stickyTemplateHTML = `
        <div class="header-cont">
-         <div class="minimize"></div>
-         <div class="remove"></div>
+         <div class="minimize"><i class="fas fa-minus"></i></div>
+         <div class="remove"><i class="fas fa-times"></i></div>
        </div>
        <div class="note-cont">
           <textarea spellcheck="false"></textarea>

@@ -136,9 +136,21 @@ img{
 }
 .minimize{
      background-color: rgb(106, 204, 106);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.fa-minus{
+    color: white;
 }
 .remove{
     background-color: rgb(252, 98, 71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.remove > *{
+    color: white;
 }
 .note-cont{
      height: calc(100% - 2rem);
