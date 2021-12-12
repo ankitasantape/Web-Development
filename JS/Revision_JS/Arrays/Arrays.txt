@@ -1,0 +1,7 @@
+-> Any value attaches to array like property not on the basis 
+-> Arrays = push, pop => works at the back of array
+         shift, unshift => works at the fornt of the array
+
+-> Array is just work like object.
+-> Array is continuous memory allocation
+-> Array stores data just like keys stored in array, arr['1', 'anystring']          
