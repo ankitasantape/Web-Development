@@ -1,0 +1,86 @@
+Overall Schedule (Agile = Plan and tweak)
+    Dev L1 = Dec 11 to Dec 30 
+    DSA L1 = Jan 1 to Jan 20 
+        Companies (Internships and Full-time) from Jan 21 
+            For any course that began on and before Sep 2021
+    DSA L2 (with System Design) = Jan 21 to March 31 
+    Dev L2 = April 1 to April 30 
+        Companies (Internships and Full-time) from May 1 
+    DSA L3 = May 1 to May 15
+    CORE = May 16 to June 10
+    Dev L3 = June 11 to June 30
+        Companies (Internships and Full-time) from July 1 
+            For any course that began before Nov 2021
+    Revision, Company-Specific, Extra (Cloud) = July and August
+
+*Dev L1 = Dec 11 to Dec 30 
+    Overall = JS, Frontend', Backend', Full-stack', React'
+    JS = Arrays*
+    JS = Functions
+    Frontend'
+
+    JS = Callback, Promise, Async-Await
+    JS = Objects
+    Backend'
+
+    JS = Misc1
+    Full-stack'
+
+    JS = Misc2
+    React'
+
+Paceup
+    No/Lesser chats and updates = In effect already
+    Longer classes = 1st Jan
+    Faster pace (discussion instead of code for some questions) = 21st Jan
+    More hw = 21st Jan
+    Schedule Sheet*
+
+Postponed sine die
+    Auto-recording upload check [DJ, Kartik, Apoorv]
+    Check Sieve time complexity videos
+    Clearing FJP and JSP mails and calls
+
+Today's Lecture
+    Demos = 1 feature at a time
+    Activities = many features together (class project)
+    Hackathon and Freelancing opportunities = own project
+    Interview class = factual and boring but important because of interview type questions
+
+    Arrays
+        ques1: intersection of arrays = hw
+        ques2: union of arrays = hw
+        ques3: sum of squares of ages of all valid candidates = hw
+        Read: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+        reduceRight: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight
+
+        indexOf: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+        lastIndexOf: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf
+        includes = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+
+        reverse: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
+        sort: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+        concat: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+        join: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+-->
+        flat: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
+        flatMap: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+    
+        keys: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys
+        values: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
+        entries: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entrie
+
+        fill: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+        copyWithin: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin
+
+        Array.from = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+        Array.of = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of
+        Array.isArray = https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+            
+       
+
+         
+           
+            
+

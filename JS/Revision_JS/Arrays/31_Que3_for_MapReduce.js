@@ -1,31 +1,24 @@
-// Find union of array
-let arr2d = [[2, 8, 10, 73], [34], [45, 31, 25, 10, 64, 72, 88], [64], [25, 73]];
+let arr1 = [10, 50, 70, 80, 90, 100, 30, 60];
+let arr2 = [11, 50, 75, 85, 90, 100, 34, 60];
+let a2ma1 = arr2.filter(v => arr1.includes(v) == false); // elements in a2 which are not in a1
 
-// let arr = [];
-// union of arrays = [2, 8, 10, 73, 34, 45, 31, 25, 64, 72, 88]
-let arr = arr2d.reduce(function(pv, cv, ci, oarr){
-       let narr = [];
-       if(pv == ''){
-        //   console.log(pv + " => " + cv)
-          narr = pv.concat( cv );
-          return narr;
-       }
-       
-       for(let i = 0; i < cv.length; i++){
-            // console.log(pv + " => " + cv)
-            let temparr;
-            if( !pv.includes(cv[i]) ){
-                // console.log(pv + " => " + cv[i]);
-               temparr = pv.concat(cv[i]);
-               console.log(narr);
-               narr = narr.concat(temparr);
-            } 
-           
-       }
-       console.log(narr);
-       return narr; 
-}, []);
-console.log(arr);
+console.log(a2ma1);
+let union = arr1.concat(a2ma1);
+console.log(union);
 
+let arr2d = [
+    [10, 50, 70, 80, 90, 100, 30, 60],
+    [11, 50, 75, 85, 90, 100, 34, 60], // [10, 50, 70, 80, 90, 100, 30, 60, 11, 75, 85, 34]
+    [10, 51, 70, 80, 90, 100, 30, 60], // [10, 50, 70, 80, 90, 100, 30, 60, 11, 75, 85, 34, 51]
+    [11, 50, 75, 85, 92, 100, 34, 60], // [10, 50, 70, 80, 90, 100, 30, 60, 11, 75, 85, 34, 51, 92]
+    [10, 50, 70, 80, 90, 100, 30, 60], // [10, 50, 70, 80, 90, 100, 30, 60, 11, 75, 85, 34, 51, 92]
+];
 
+let union1 = arr2d.reduce(function(pv, cv, ci, oarr){
+    let cvmpv = cv.filter(v => pv.includes(v) == false);
+    let union = pv.concat(cvmpv);
+    return union;
+})
+console.log(union1);
 
+// [10, 50, 70, 80, 90, 100, 30, 60, 11, 75, 85, 34, 51, 92] (union of arrays)
