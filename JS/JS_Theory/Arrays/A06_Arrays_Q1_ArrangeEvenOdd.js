@@ -13,26 +13,28 @@ for(let i = 1; i <= 10; i++){
 }
 console.log("My Answer -> " + arr);
 
-let ar = [20, 30, 12, 71, 9, 18, 43, 64, 11, 47];
+
+let array = [20, 30, 12, 71, 9, 18, 43, 64, 11, 47];
 let odd = [];
 let even = [];
 
 let i = 0;
-while(ar.length > 0){
-    let val = ar.shift(); // get array value
-    if(val % 2 == 0){ // check value
+while ( array.length > 0 ) {
+    let val = array.shift();
+    if(val % 2 == 0){
         even.push(val);
     } else {
         odd.push(val);
     }
 }
-
-arr = even.concat(odd); // complexity of concat -> O(n)
-displayArray(arr);
-displayArray(odd);
+array = even.concat(odd);
+console.log("Even: ");
 displayArray(even);
+console.log("Odd: ");
+displayArray(odd);
+console.log("EvenAndOdd: ");  
+displayArray(array);
 
 function displayArray(arr){
     console.log(arr + " = " + arr.length);
 }
-

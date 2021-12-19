@@ -1,4 +1,3 @@
-// 18_Que6_using_filter_and_map.js
 
 let arr = [
     {name: "A", age: 14, gender: "M"},

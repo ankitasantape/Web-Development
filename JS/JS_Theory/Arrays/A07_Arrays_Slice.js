@@ -20,36 +20,6 @@ displayArray(na5);
 let na6 = arr.slice(1, -2);
 displayArray(na6);
 
-// shallow copies
-let o1 = {
-    age: 100
-};
-let o2 = {
-    age: 200
-};
-let o3 = {
-    age: 300
-}
-
-let anarr = [o1, o2, o3];
-displayObjectArray(anarr);
-
-let scopy = anarr.slice();
-displayObjectArray(scopy);
-
-scopy[0].age = 110;
-displayObjectArray(anarr);
-displayObjectArray(scopy);
-
 function displayArray(arr){
     console.log(arr + " = " + arr.length);
-}
-function displayObjectArray(arr){
-    let str = "";
-
-    for(let i = 0; i < arr.length; i++){
-        str += arr[i].age + ", ";    
-    }
-
-    console.log(str + ".");
 }
