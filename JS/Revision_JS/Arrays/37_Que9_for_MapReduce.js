@@ -4,32 +4,66 @@ let str = "My name is Sumeet Malik. I am a software developer. I believe in lear
 
 // without for loops you have to do it.
 
-let res1 = str.split(".");
-console.log(res1);
+let arr = str.split(".");
+console.log(arr);
+// [
+//     'My name is Sumeet Malik',
+//     ' I am a software developer',
+//     ' I believe in learning by doing',
+//     ' I need courage and patience',
+//     ''
+//   ]
 
-let res2 = res1.filter(s => s.length > 0);
-console.log(res2);
+arr = arr.filter(s => s.length > 0);
+console.log(arr);
+// [
+//     'My name is Sumeet Malik',
+//     ' I am a software developer',
+//     ' I believe in learning by doing',
+//     ' I need courage and patience'
+//   ]
 
-let res3 = res2.map(s => s.trim());
-console.log(res3);
+arr = arr.map(s => s.trim() );
+console.log(arr);
+// [
+//     'My name is Sumeet Malik',
+//     'I am a software developer',
+//     'I believe in learning by doing',
+//     'I need courage and patience'
+//   ]
 
-let res4 = res3.map(s => s.split(" "));
-console.log(res4);
+arr = arr.map(s => s.split(" "));
+console.log(arr);
+// [
+//     [ 'My', 'name', 'is', 'Sumeet', 'Malik' ],
+//     [ 'I', 'am', 'a', 'software', 'developer' ],
+//     [ 'I', 'believe', 'in', 'learning', 'by', 'doing' ],
+//     [ 'I', 'need', 'courage', 'and', 'patience' ]
+//   ]
 
-res4.map(a => a.reverse()); // it is more relevant to use foreach
-console.log(res4);
 
-let res5 = res4.map(a => a.join(" "));
-console.log(res5);
+arr = arr.map(sarr => sarr.reverse() );
+console.log(arr);
+// [
+//     [ 'Malik', 'Sumeet', 'is', 'name', 'My' ],
+//     [ 'developer', 'software', 'a', 'am', 'I' ],
+//     [ 'doing', 'by', 'learning', 'in', 'believe', 'I' ],
+//     [ 'patience', 'and', 'courage', 'need', 'I' ]
+//   ]
 
-let res6 = res5.map(s => s + ".");
-console.log(res6);
+arr = arr.map(sarr => sarr.join(" "));
+console.log(arr);
+// [
+//     'Malik Sumeet is name My',
+//     'developer software a am I',
+//     'doing by learning in believe I',
+//     'patience and courage need I'
+//   ]
 
-let res7 = res6.reduce(function(pv, cv){
-    return pv + " " + cv;
-})
+arr = arr.reduce((pv, cv, ci, oarr) => { return pv + ". " + cv });
+console.log(arr + ".");
+// Malik Sumeet is name My. developer software a am I. doing by learning in believe I. patience and courage need I.
 
-console.log(res7);
 
 // let res = str.split(".").filter(s => s.length > 0).map(s => s.trim().split(" ").reverse().join(" ") + ".").reduce(function(pv, cv){
 //     return pv + " " + cv;

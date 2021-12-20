@@ -7,23 +7,23 @@
 // 
 let arr = [10, 20, 30, 40, 50, 60, 60, 50, 40, 30, 20, 10];
 
-let ioRes = arr.indexOf(30); // firstIndex or -1
-let lioRes = arr.lastIndexOf(30); // last index or -1
-let iRes = arr.includes(30); // true or false
+let ioRes = arr.indexOf(30); // 2 // it returns firstIndex or -1
+let lioRes = arr.lastIndexOf(30); // 9 // it returns last index or -1
+let iRes = arr.includes(30);  // true // true or false
 
 // give me the first value above 50
 let fRes = arr.find(function(v, i, oarr){
-    return v > 50;
+    return v > 50; // 60
 })
 
 // give me index of first value above 50
 let fiRes = arr.findIndex(function(v, i, oarr){
-    return v > 50;
+    return v > 50; // arr[5] = 60
 })
 
 // give me all values above 50
 let fltrRes = arr.filter(function(v, i, oarr){
-    return v > 50;
+    return v > 50; // [60, 60]
 })
 
 console.log(ioRes);

@@ -17,7 +17,6 @@ let cv = farr.reverse().reduce(function(pv, cv){
     return cv(pv);
 }, x);
 
-
 console.log(cv);
 
 // 10, f
@@ -33,3 +32,11 @@ console.log(cv);
 
 
 // f(g(h(x))) = f(g(2x)) = f (2x + 10) = 4x^2 + 100 + 40x = 900
+
+let fa = [f, g, h]; // [h, g, f] | pv = h, cv = g ==> cv(pv)
+// let x = 10;
+let cval = fa.reverse().reduce((pval, cval) => { 
+      return cval(pval);
+ }, x);
+ 
+ console.log(cval);
