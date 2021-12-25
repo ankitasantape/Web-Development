@@ -1,73 +1,63 @@
-// Storage -> 2D matrix (Basic needed)
-let graphComponentMatrix = [];
+let graphComponentsMatrix = [];
 
-for (let i = 0; i < rows; i++){
+for (let i = 0;i < rows;i++) {
     let row = [];
-    for (let j = 0; j < cols; j++){
-        
-        // Why array -> More than 1 child relation(dependency)
+    for (let j = 0;j < cols;j++) {
         row.push([]);
     }
-    graphComponentMatrix.push(row);
+    graphComponentsMatrix.push(row);
 }
 
-// true - cyclic , False -> Not cyclic 
-function isGraphCyclic(graphComponentMatrix) {
-    //  Dependency hai visited arr ki and dfsVisited arr ki 
-    let visited = [];  // Node visit trace
-    let dfsVisited = []; // arr for stack visit trace 
-    
-    // make dependency
-    for (let i = 0; i < rows; i++){
-        let visitedRow = [];
-        let dfsVisitedRow = [];
-        for (let j = 0; j < cols; j++){
-            visitedRow.push(false);
-            dfsVisitedRow.push(false);
+function isGraphCyclic(graphComponentsMatrix) {  // Cycle detection in Directed graph algorithm
+    let graphVisited = [];  // Keep track of visited vertex( node )
+    let dfsVisited = [];  // Keep track of visited vertex( node ) in dfs call
+
+    for (let i = 0;i < rows;i++) {
+        let graphRow = [];
+        let dfsRow = [];
+        for (let j = 0;j < cols;j++) {
+            graphRow.push(false);
+            dfsRow.push(false);
         }
-        visited.push( visitedRow );
-        dfsVisited.push( dfsVisitedRow );
+        graphVisited.push(graphRow);
+        dfsVisited.push(dfsRow);
     }
-    
-    // make call on different row and col
-    for (let i = 0; i < rows; i++){
-        for (let j = 0; j < cols; j++){
-            if( visited[i][j] === false){
-                let response =  dfsCycleDetection(graphComponentMatrix, i, j, visited, dfsVisited);
-                // Found cycle so return immediately, no need to explore more
-                if (response === true) return true;     
-            }  
+
+    for (let i = 0;i < rows;i++) {
+        for (let j = 0;j < cols;j++) {
+            if (graphVisited[i][j] == false) {
+                if (cyclicDFS(graphComponentsMatrix, i, j, graphVisited, dfsVisited) == true) {
+                    return {
+                        srcr: i,
+                        srcc: j
+                    }  // Returns cycle path src point for color tracking
+                }
+            }
         }
     }
 
-    return false;
+    return null;
 }
 
-// Start -> visited(True), dfsVisited(true)
-// End -> dfsVisited(FALSE)
-// If visited[i][j] -> already explored path, so go back no use to explore again
-// Cycle detection condition -> if (visited[i][j] == true && dfsVisited[i][j] == true) -> cycle
-// Return -> True/False
-// true - cyclic , False -> Not cyclic 
-function dfsCycleDetection(graphComponentMatrix, srcrow, srccol, visited, dfsVisited) {
-   
-    visited[srcrow][srccol] = true;
-    dfsVisited[srcrow][srccol] = true;
-    console.log(graphComponentMatrix + " " + srcrow + " " + srccol);
-    //   A1 -> [[0, 1], [1, 0], [5, 10], ..... ]
-    console.log( graphComponentMatrix[srcrow][srccol] + " -> " + graphComponentMatrix.length);
-    for (let children = 0; children < graphComponentMatrix[srcrow][srccol].length; children++) {
-        let [nbrrow, nbrcol] = graphComponentMatrix[srcrow][srccol][children];
-        // console.log("cycle not found");
-        if ( visited[nbrrow][nbrcol] === false ){
-           let response = dfsCycleDetection(graphComponentMatrix, nbrrow, nbrcol, visited, dfsVisited);
-           if (response === true) { return true; } // Found cycle so return immediately, no need to explore more.
+function cyclicDFS(graphComponentsMatrix, srcr, srcc, graphVisited, dfsVisited) {
+    graphVisited[srcr][srcc] = true;
+    dfsVisited[srcr][srcc] = true;
+
+    for (let i = 0;i < graphComponentsMatrix[srcr][srcc].length;i++) {
+        let neighbour = graphComponentsMatrix[srcr][srcc][i];
+        let nbrr = neighbour[0];
+        let nbrc = neighbour[1];
+
+        if (graphVisited[nbrr][nbrc] == false) {
+            if (cyclicDFS(graphComponentsMatrix, nbrr, nbrc, graphVisited, dfsVisited) == true) {
+                return true;
+            }
         }
-        else if (visited[nbrrow][nbrcol] === true && dfsVisited[nbrrow][nbrcol] === true) {
-            // console.log("cycle found");
-            return true; // Found cycle so return immediately, no need to explore more
+        else if (dfsVisited[nbrr][nbrc] == true) {  // If visited in both dfs call path and in graph vertex visited, then cycle exists
+            return true;
         }
     }
-    dfsVisited[srcrow][srccol] = false;
+
+    dfsVisited[srcr][srcc] = false;  // Backtrack by unvisiting dfs path
     return false;
 }
