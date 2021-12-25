@@ -1,6 +1,6 @@
 'use strict';
 const loginLink = "https://www.hackerrank.com/auth/login";
-const  { answers } = require("./code");
+const  { answers } = require("./codes");
 const puppeteer = require("puppeteer")
 // creates headless browser
 let browserStartPromise = puppeteer.launch({
@@ -70,6 +70,18 @@ async function questionSolver(page, question, answer) {
      await page.click(".hr-monaco__run-code");
      await page.click(".hr-monaco-submit");
 }  
+
+function consoleFn(selector, qName) {
+    let qNamesElem = document.querySelectorAll(selector);
+    for (let i = 0; i < qNamesElem.length; i++) {
+        let cName = qNamesElem[i].innerText.split("\n")[0];
+        if (cName == qName) {
+            console.log(cName);
+            return qNamesElem[i].click();
+
+        }
+    }
+}
 
 
 

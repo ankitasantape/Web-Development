@@ -20,7 +20,7 @@ module.exports = {
         }
 `,
 // Compare the Triplets
-        `#include <bits/stdc++.h>
+`#include <bits/stdc++.h>
 using namespace std;
 string ltrim(const string &);
 string rtrim(const string &);

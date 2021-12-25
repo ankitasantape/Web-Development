@@ -1,4 +1,4 @@
-// Socket.io cdn -> 
+
 const express = require("express");
 const socket  = require("socket.io");
 
@@ -6,10 +6,6 @@ const app = express(); // Initialized and server ready
 const port = process.env.PORT || 8000;
 
 app.use(express.static("public"));
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
 
 let server = app.listen(port, () => {
   console.log(`listening to port ${port}`);
