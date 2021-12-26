@@ -4,14 +4,17 @@ In Hoisting ->
 For function definition,
   fun variable and fun() function both will be hoisted.
 For function expression,
-  only, gun variable will e hoisted
+  only, gun variable will be hoisted
 
   var fun = function fun(){
-    gun();
-} 
+      gun();
+  } 
+
+  v
 
 */ 
 
+// function declaration
 function fun(){
     gun();
 }
@@ -22,3 +25,5 @@ fun();
 var gun = function(){
     console.log("I am inside gun");
 }
+
+// output: I am inside gun
