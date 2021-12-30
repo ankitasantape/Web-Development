@@ -26,11 +26,13 @@ function isGraphCyclic(graphComponentsMatrix) {  // Cycle detection in Directed 
     for (let i = 0;i < rows;i++) {
         for (let j = 0;j < cols;j++) {
             if (graphVisited[i][j] == false) {
+
                 if (cyclicDFS(graphComponentsMatrix, i, j, graphVisited, dfsVisited) == true) {
-                    return {
-                        srcr: i,
-                        srcc: j
-                    }  // Returns cycle path src point for color tracking
+                    return [i, j];
+                    // {
+                    //     srcr: i,
+                    //     srcc: j
+                    // }  // Returns cycle path src point for color tracking
                 }
             }
         }
