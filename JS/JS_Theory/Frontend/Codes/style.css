@@ -3,31 +3,72 @@
     background-color: azure;
     width: 200px;
     margin-left: 600px;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#btnAddFolder:hover {
+    transform: scale(1.02);
+}
+
+#divBreadCrumb {
+    border: 1px solid black;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.path {
+    cursor: pointer;
+
+    background-color: gray;
+    color: black;
+
+    padding: 10px;
+    border-right: 3px solid black;
+}
+
+.path:hover{
+    background-color: white;
+    color: blue;
+    text-decoration: underline;
 }
 
 #divContainer {
     border: 1px solid black;
     display: flex;
     margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .folder {
     background-color: teal;
     border-radius: 5px;
     height: 100px;
-    width: 100px;
+    width: 150px;
     padding: 10px;
     margin: 10px;
-    
+    text-shadow: 2px 2px 4px #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .folder [action]{
     text-decoration: underline;
-    /* cursor: pointer; */
+    cursor: pointer;
+}
+
+.fas{
+    font-size: 1.1rem;
+    color: white;
+    margin: 2px;
+}
+
+.fa-times{
+    font-size: 1.2rem;
 }
 
 div[purpose=name]{
     margin-top: 50px;
     color: white;
-    word-wrap: break-word; 
 }
