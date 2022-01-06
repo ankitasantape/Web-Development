@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" integrity="sha512-17AHGe9uFHHt+QaRYieK7bTdMMHBMi8PeWG99Mf/xEcfBLDCn0Gze8Xcx1KoSZxDnv+KnCC+os/vuQ7jrF/nkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>My Contact</title>
+</head>
+<body>
+       <div class="container">
+           <h1 class="center-align">
+               My Contacts
+           </h1>
+           <input type="text" id="filterInput" placeholder="Search names...">
+           <ul id="names" class="collection-with-header">
+               <!-- Start with A -->
+               <li class="collection-header"> 
+                   <h5>A</h5>
+               </li>
+               <li class="collection-item">
+                   <a href="#">Ankita</a>
+               </li>
+               <li class="collection-item">
+                   <a href="#">Ankisha</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Anjali</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Anchal</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Anuja</a>
+               </li>
+               <!-- Start with B -->
+               <li class="collection-header">
+                  <h5>B</h5>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Bhagyashree</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Bhuwan</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Bhuwaneshwar</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Bhawesh</a>
+               </li>
+               <li class="collection-item">
+                  <a href="#">Bharati</a>
+               </li>
+                <!-- Start with C -->
+               <li class="collection-header">
+                  <h5>C</h5>
+               </li>
+               <li class="collection-item">
+                <a href="#">Chaitali</a>
+               </li>
+             <li class="collection-item">
+                <a href="#">Chetak</a>
+             </li>
+             <li class="collection-item">
+                <a href="#">Cat</a>
+             </li>
+             <li class="collection-item">
+                <a href="#">Cow</a>
+             </li>
+             <li class="collection-item">
+                <a href="#">Catie</a>
+             </li>
+           </ul>
+       </div>
+
+       <script scr="./index.js">
+           let filterInput = document.getElementById('filterInput');
+// Add event Listener
+filterInput.addEventListener("keyup", filterNames);
+
+function filterNames(){
+    // Get value of input
+    let filterValue = document.getElementById("filterInput").value.toUpperCase();
+    //  e();
+    // Get names ul 
+    let ul  = document.getElementById("names");
+    // Get lis from ul 
+    let li = ul.querySelectorAll("li.collection-item");
+    console.log("Welcome. => "+ li.length)
+    // loop through collection-item lis
+    for (let i = 0; i < li.length; i++) {
+        let a = li[i].getElementsByTagName('a')[0]; // a -> anchorTag
+        // If matched
+
+        if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+            console.log("hello");
+              li[i].style.display = '';   
+        } else {
+              li[i].style.display = 'none';   
+        }
+    }
+}
+       </script>
+</body>
+</html>

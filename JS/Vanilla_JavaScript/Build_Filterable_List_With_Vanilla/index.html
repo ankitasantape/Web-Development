@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper || Simple </title>
+    <style>
+              body{
+                  margin: 0;
+                  padding: 0;
+              }
+              header{
+                  height: 3rem;
+                  width: 100vw;
+                  gap: 20rem;
+                  justify-content: center;
+                  display: flex;
+                  align-items: center;
+                  background-color: white;
+                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+              }
+              .left{
+                  width: 10rem;
+                  color: rgb(114, 169, 231);
+                  font-size: 20px;
+              }
+              main{
+                  height: calc(100vh - 48px);
+                  align-items: center;
+                  justify-content: center;
+                  display: flex;
+                  flex-direction: column;  
+                  /* background-color: red; */
+              }
+              #color{
+                  /* color: rgb(248, 79, 79); */
+                  font-weight: bold;
+                  font-size: 47px;
+              }
+              #simple{
+                  font-size: 25px;
+                  margin: 1rem;
+              }
+              #hex{
+                  font-size: 25px;
+                  margin: 1rem;
+              }
+ 
+              .background{
+                  height: 5rem;
+                  width: 45rem;
+                  margin: 2rem;
+                  border-radius: 0.5rem;
+                  align-items: center;
+                  justify-content: center;
+                  display: flex;
+                  background-color: black;
+                  color: white;
+                  font-size: 47px;
+                  font-style: bold;
+              }
+              #btn{
+                  height: 3rem;
+                  width: 9rem;
+                  border: 2px solid black;
+                  font-size: 14px;
+                  font-style: bold;
+                  border-radius: 0.4rem;
+                  /* background-color: red; */
+              }
+
+    </style>
+</head>
+<body>
+       <header> 
+           <span class="left">Color Flipper</span>
+           <span class="right">
+               <span id="simple">Simple</span>
+               <span id="hex">Hex</span> 
+            </span>
+       </header>
+       <main id="main">
+           <div class="background">Background Color : &nbsp;<div class="colorName" id="color"></div> </div>
+           <div class="btn-div"><button type="button" id="btn">CLICK ME</button></div> 
+       </main>
+
+       <script>
+
+             let main = document.getElementById("main");
+             let btn = document.getElementById("btn");
+             let simple = document.getElementById("simple");
+             let hex = document.getElementById("hex");
+             let color = document.getElementById("color");
+             let colorName = document.querySelector(".colorName")
+             let flagSimple = false;
+             let flagHex = false;
+             let count = 0;
+
+             btn.addEventListener("mouseover", (e) => {
+                   btn.style.backgroundColor = "black";
+                   btn.style.color = "white";
+             })
+             btn.addEventListener("mouseout", (e) => {
+                   btn.style.backgroundColor = "transparent";
+                   btn.style.color = "black";
+             })
+
+             simple.addEventListener("mouseover", (e) => {
+                simple.style.color = "rgb(160, 202, 241)";
+
+                simple.addEventListener("click", (e) => {
+                    if(flagHex == false){
+                       simple.style.color = "rgb(160, 202, 241)"; // blue
+                       flagSimple = true;
+                    } else {
+                       hex.style.color = "black"; // blue
+                       simple.style.color = "rgb(160, 202, 241)";
+                       flagHex = false;
+                       flagSimple = true;
+                    } 
+                    
+                    if (flagSimple === true){
+                        btn.addEventListener("click", filterSimpleColor);
+                    }
+                })
+
+             })
+
+             simple.addEventListener("mouseout", (e) => {
+                if( flagSimple ){
+                    return;
+                } 
+                simple.style.color = "rgb(53, 48, 48)";
+             })
+  
+             hex.addEventListener("mouseover", (e) => {
+                hex.style.color = "rgb(160, 202, 241)";
+
+                hex.addEventListener("click", (e) => {
+                   if(flagSimple == false){
+                      hex.style.color = "rgb(160, 202, 241)"; // blue
+                      flagHex = true;
+                   } else {
+                      simple.style.color = "black"; // blue
+                      hex.style.color = "rgb(160, 202, 241)";
+                      flagSimple = false;
+                      flagHex = true;
+                   }
+
+                   if( flagHex === true ){
+                        btn.addEventListener("click", filterHexColor);
+                    }
+                })
+             })
+             
+             hex.addEventListener("mouseout", (e) => {
+                if( flagHex ){
+                    return;
+                } 
+                hex.style.color = "rgb(53, 48, 48)";
+             })
+
+            function filterSimpleColor(){
+                let colors = ["Black", "Silver","Gray","White",
+                "Maroon","Red","Purple","Fuchsia",
+                "Green","Lime","Olive","Yellow"  ];
+
+                count = count % colors.length;
+                btn.style.backgroundColor = colors[count];
+                main.style.backgroundColor = colors[count];
+                color.style.color = `${main.style.backgroundColor}`;
+                colorName.innerHTML = `${(main.style.backgroundColor).toUpperCase()}`;
+     
+                btn.style.color = "rgb(53, 48, 48)";
+                count++;
+            }
+
+            function filterHexColor(){
+                let colors = ["#000000", "#c0c0c0", "#808080","#ffffff",
+                "#800000","#ff0000","#800080","#ff00ff",
+                "#008000","#00ff00","#808000","#ffff00"];
+
+                count = count % colors.length;
+                btn.style.backgroundColor = colors[count];
+                main.style.backgroundColor = colors[count];
+                color.style.color = `${ main.style.backgroundColor}`;
+                colorName.innerHTML = `${colors[count]}`;
+
+                btn.style.color = "rgb(53, 48, 48)";
+                count++;
+            }
+
+
+       </script>
+</body>
+</html>
