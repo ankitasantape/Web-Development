@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+            body{
+                margin:0;
+                padding:0;
+                background-color:rgb(245, 247, 248);
+                
+            }
+            header{
+                height:5rem;
+                display:flex;
+                place-items: center; 
+                background-color: rgb(253, 253, 253);
+                box-shadow: 0 4px 8px 0 rgba(155, 154, 154, 0.2), 0 6px 20px 0 rgba(145, 142, 142, 0.19);
+            }
+            .title{
+                text-transform: capitalize;
+                letter-spacing:3px;
+                font-weight:500;
+                font-size:24px;
+                font-family:"Opens sans", sans-serif; 
+                width:29%;
+                padding: 1rem;
+                place-items: center; 
+                text-shadow: 2px 2px 4px #7e7b7b;
+            }
+            .title>*{
+                margin-right:10px;
+            }
+            #cod{
+                color:rgb(34, 31, 31)
+            }
+            #add{
+                color:rgb(70, 165, 228);
+            }
+            .container{
+                text-transform: capitalize;
+                letter-spacing:3px;
+                font-size:16px;
+                font-family:"Opens sans", sans-serif;
+                color:rgb(61, 60, 60);
+                width:50%;
+                padding: 1rem;
+                place-items: center;
+            }
+            .container > *:hover {  
+                transition: 2s;
+                transition-timing-function: linear; 
+                color:rgb(69, 180, 231);
+            }
+            .icons{
+                width:20%;
+                padding:1rem;
+                place-items: center;
+            }
+            #one, #two, #three, #four{
+                margin-right:13px;
+            }
+            .icons span{
+                height:10px;
+                width:10px;
+                color:rgb(49, 144, 223);;
+                background-color: white;
+            }
+            .icons span > *{
+                margin:5px;
+            }
+            .icons span:hover > *{
+                transition: 2s;
+               color:rgb(108, 176, 224);
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <span id="cod">coding</span>
+            <span id="add">addict</span>
+        </div>
+        <div class="container"> 
+            <span id="one">home</span>
+            <span id="two">about</span>
+            <span id="three">projects</span>
+            <span id="four">contacts</span>
+        </div>        
+        <div class="icons">
+             <span><i class="fab fa-facebook"></i></span>
+             <span><i class="fab fa-twitter"></i></span>
+             <span><i class="fab fa-github-square"></i></span>
+             <span><i class="fab fa-linkedin"></i></span>
+             <span><i class="fas fa-gem"></i></span>
+        </div>
+    </header>
+</body>
+</html>

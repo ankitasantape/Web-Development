@@ -86,8 +86,9 @@ prevBtn.addEventListener("click", function () {
 });
 // show random person
 randomBtn.addEventListener("click", function () {
-  console.log("hello");
-
+  // console.log("hello");
+  // console.log(Math.random() , " ", reviews.length, " = ",  Math.random() * reviews.length, " => " , Math.floor(Math.random() * reviews.length))
   currentItem = Math.floor(Math.random() * reviews.length);
+  console.log(currentItem);
   showPerson(currentItem);
 });

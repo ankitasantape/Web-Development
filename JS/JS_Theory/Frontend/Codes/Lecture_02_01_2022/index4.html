@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>My first hands on frontend</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="style4.css">
+    </head>
+
+    <body>
+        <button id="btnAddFolder">Add Folder</button>
+        <div id="divBreadCrumb">
+            <a class="path" fid="-1">Root</a>
+        </div>
+        <div id="divContainer"></div>
+
+        <template id="pageTemplates">
+            <div class="folder">
+                <span action="edit"><i class="fas fa-pencil-alt"></i></span>
+                <span action="delete"><i class="fas fa-times"></i></span>
+                <span action="view">view</span>
+                <div purpose="name"></div>
+            </div>
+            <a class="path"></a>
+        </template>
+
+        <script type="text/javascript" src="main4.js"></script>
+    </body>
+</html>

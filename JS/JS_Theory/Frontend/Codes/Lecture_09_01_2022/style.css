@@ -1,0 +1,82 @@
+body{
+    background: rgb(229, 239, 247);
+}
+#header{
+    border: 1px solid rgb(177, 224, 255);
+    margin: 10px;
+    padding: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    background-color: rgb(177, 224, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#header button{ 
+    
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    border-radius:10px;
+    padding:10px;
+    display:center;
+    color: blue;
+    justify-content:center;
+    background-color:rgb(220, 241, 255);
+    border-top: 2px solid rgb(143, 207, 250);
+    border-left: 2px solid rgb(143, 207, 250);
+    border-bottom: 2px solid rgb(22, 59, 114);
+    border-right: 2px solid rgb(22, 59, 114);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+#header button:hover{
+    background: rgb(143, 207, 250);
+    color: blue;
+    transform:scale(1.02);
+
+}
+.folder{
+    background-color:rgb(220, 241, 255);
+    color: rgb(34, 58, 194);
+    height:120px;
+    width: 150px;
+
+    margin:10px;
+    padding:10px;
+    border-bottom: 2px solid rgb(22, 59, 114);
+    border-right: 2px solid rgb(22, 59, 114);
+    border-radius:4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.folder div[purpose='name']{
+     margin: 50px 0 3px 0;
+     font-family: 'Open Sans', sans-serif;
+     letter-spacing: 1.4px;
+}
+.folder span{
+    cursor:pointer;
+}
+.folder span:hover{
+    color:rgb(10, 34, 247);
+    text-shadow: 2px 2px 4px #9b9cf8;
+}
+
+#breadcrumb{
+    border: 1px solid rgb(177, 224, 255);
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(177, 224, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(6, 41, 70, 0.19);
+}
+#container{
+    border: 1px solid rgb(177, 224, 255);
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(177, 224, 255);
+    display:flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#app{
+    border: 1px solid rgb(177, 224, 255);
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(177, 224, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} 

@@ -1,0 +1,90 @@
+#btnAddFolder {
+    border-radius: 5px;
+    color:rgb(33, 168, 231);
+    background-color: rgb(222, 240, 245);
+    width: 200px;
+    margin-left: 600px;
+    padding: 20px;
+    border-top: 2px solid rgb(66, 215, 252); 
+    border-left: 2px solid rgb(66, 215, 252); 
+    border-right: 2px solid rgb(55, 161, 211); 
+    border-bottom: 2px solid rgb(55, 161, 211);  
+    cursor: pointer;
+    font-weight:bold;
+    
+    text-shadow: 2px 2px 4px #b1e1ec;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#btnAddFolder:hover {
+    transform: scale(1.02);
+    background-color:rgb(112, 222, 250); 
+    
+}
+
+#divBreadCrumb {
+    border: 1px solid black;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.path {
+    cursor: pointer;
+
+    background-color: gray;
+    color: White;
+
+    padding: 10px;
+    border-right: 3px solid black;
+
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.path:hover{
+    background-color: white;
+    color: black;
+    text-decoration: underline;
+    text-shadow: 2px 2px 4px lightgray;
+}
+
+#divContainer {
+    border: 1px solid black;
+    display: flex;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.folder {
+    background-color: teal;
+    border-radius: 5px;
+    height: 100px;
+    width: 150px;
+    padding: 10px;
+    margin: 10px;
+    text-shadow: 2px 2px 4px #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.folder [action]{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.fas{
+    font-size: 1.1rem;
+    color: white;
+    margin: 2px;
+    
+}
+
+.fa-times{
+    font-size: 1.2rem;
+    
+}
+
+div[purpose=name]{
+    margin-top: 50px;
+    color: white;
+}
