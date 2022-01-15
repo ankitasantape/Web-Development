@@ -33,14 +33,22 @@
         box-sizing: border-box;
       }
       .container {
+        height:50rem;
+        width:50rem;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        align-content:center;
         padding-top: 5rem;
       }
 
       .red {
         background-color: red;
+       
+      }
+      .blue{
+        background-color: blue;
+        
       }
       .card {
         border: 1px solid;
@@ -52,36 +60,42 @@
   </head>
   <body>
     <div class="container">
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card blue"></div>
       <div class="card"></div>
       <div class="card"></div>
       <div class="card red"></div>
       <div class="card"></div>
       <div class="card"></div>
+      <div class="card blue"></div>
+      <div class="card red"></div>
       <div class="card"></div>
       <div class="card"></div>
     </div>
     <script>
-      //  Q Create a generic function to select 
-    //   all sibling of a given node. Using that 
+      //  Q. Create a generic function to select 
+     //  all sibling of a given node. Using that 
     // function delete all siblings of red card
 
       //   Solution:
 
-    let redElemNode = document.querySelector(".red"); 
+    let redCard = document.querySelector(".red");
+    
+    let blueCard = document.querySelector(".blue"); 
     let cardsList = document.querySelectorAll(".card");
     cardsList.forEach( (card) => {
-        if (card !== redElemNode){
-            card.remove();
+        if (card !== blueCard){   
+           card.remove();
         }
-    })
+       
+        // else if (card !== redCard){
+        //     card.remove();
+        // }
+    });
     
-    // deleteAllSiblings(redElemNode);
+    // deleteAllSiblings(redCard);
+    // deleteAllSiblings(blueCard);
     
-    
-    //   create generic function
+     // create generic function
     function deleteAllSiblings(redElem){
         let before = redElem.previousElementSibling;
         let after = redElem.nextElementSibling;
