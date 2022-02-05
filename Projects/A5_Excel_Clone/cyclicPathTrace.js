@@ -37,6 +37,7 @@ async function dfsCycleDetectionTracePath(graphComponentMatrix, srcr, srcc, visi
 
     let cell = document.querySelector(`.cell[rid="${srcr}"][cid="${srcc}"]`); // get cell
     cell.style.backgroundColor = "lightgreen";
+    // wait for 1sec
     await colorPromise(); // 1sec finished
 
     for (let children = 0; children < graphComponentMatrix[srcr][srcc].length; children++) {
@@ -45,6 +46,7 @@ async function dfsCycleDetectionTracePath(graphComponentMatrix, srcr, srcc, visi
             let response = await dfsCycleDetectionTracePath(graphComponentMatrix, nbrr, nbrc, visited, dfsVisited);
             if (response === true) {
                 cell.style.backgroundColor = "transparent";
+                // wait for 1sec
                 await colorPromise(); 
 
                 return Promise.resolve(true);
@@ -54,10 +56,12 @@ async function dfsCycleDetectionTracePath(graphComponentMatrix, srcr, srcc, visi
             let cyclicCell = document.querySelector(`.cell[rid="${nbrr}"][cid="${nbrc}"]`);
 
             cyclicCell.style.backgroundColor = "lightsalmon";
+            // wait for 1sec
             await colorPromise();
             cyclicCell.style.backgroundColor = "transparent";
 
             cell.style.backgroundColor = "transparent";
+            // wait for 1sec
             await colorPromise();
 
             return Promise.resolve(true);
