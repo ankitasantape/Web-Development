@@ -61,7 +61,7 @@ canvas.addEventListener("mousemove", (e) => {
 
 canvas.addEventListener("mouseup", (e) => {
     mouseDown = false;
-
+     console.log("data pushes into arr");
     let url = canvas.toDataURL();
     undoRedoTracker.push(url);
     track = undoRedoTracker.length - 1;
@@ -76,7 +76,8 @@ undo.addEventListener("click", (e) => {
         trackValue: track,
         undoRedoTracker
     }
-    //  undoRedoCanvas(trackObj);
+    console.log("undo clicked");
+    //  undoRedoCanvas(data);
     socket.emit("redoUndo", data);
 })
 
@@ -89,7 +90,8 @@ redo.addEventListener("click", (e) => {
         trackValue: track,
         undoRedoTracker
     }
-    // undoRedoCanvas(trackObj);
+    console.log("redo clicked");
+    // undoRedoCanvas(data);
     socket.emit("redoUndo", data);
 })
 

@@ -18,10 +18,10 @@
 # Day-2 (Dynamic UI)
 <!-- Pagination -->
 <!-- Tmdb api -->
-   <!-- Api Request axios -->
-      * <!-- Loader -->
-      * <!-- How to do progressive rendering -->
-      * <!-- Loader remove content show -->
+   <!-- Api Request axios -> npm i axios (connecting react app with tmdb api) -->
+       <!-- Loader -> npm i react-loader-spinner -->
+       <!-- How to do progressive rendering -->
+       <!-- Loader remove content show -->
 <!-- React component communication -->
 <!-- Dynamic -->
 <!-- Pagination -->

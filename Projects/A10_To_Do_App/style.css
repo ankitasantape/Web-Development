@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    justify-content: space-evenly;
+}
+.whitebox{
+    height: 16rem;
+    width: 26rem;
+    border: 1px solid gray;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+}
+
+.ball{
+    margin:3px;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: black solid 1px;
+    background-color:red;
+}
