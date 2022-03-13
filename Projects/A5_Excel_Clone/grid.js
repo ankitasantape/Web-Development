@@ -21,6 +21,8 @@ for (let i = 0;i < cols;i++) {
 }
 
 for (let i = 0;i < rows;i++) {
+    // one by one row ki div banayenge then us row ki div me as col -> cell div ko attach append krenge
+    // row1[[col1], [col2], [col2].....] -> row1[cell1[i,j], cell2[i,j], cell3[i,j].....]
     let rowCont = document.createElement("div");
     rowCont.setAttribute("class", "row-cont");
     for (let j = 0;j < cols;j++) {
@@ -34,6 +36,7 @@ for (let i = 0;i < rows;i++) {
         cell.setAttribute("cid", j);
 
         rowCont.appendChild(cell);
+        // add listener to show address of cell on address bar
         addListenerForAddressBarDisplay(cell, i, j);
     }
     cellsCont.appendChild(rowCont);
