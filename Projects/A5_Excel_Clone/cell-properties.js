@@ -35,7 +35,7 @@ let sheetDB = [];
 //             fontSize: "14",
 //             fontColor: "#000000",
 //             BGcolor: "#000000",  // Just for indication purpose,
-//             value: "",
+//             value: "", // 12, 23, 8748, "Hello" any value of integer, string type ki
 //             formula: "",
 //             children: [],
 //         }

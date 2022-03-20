@@ -1,9 +1,18 @@
+
+// first access all cells
 for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
+        // get current cell
         let cell = document.querySelector(`.cell[rid="${i}"][cid="${j}"]`);
+        // add blur event. why click event not used here? blur works first as compared to click event.
+        // if I add listener on click, it will immediately vanished off data of the previous cell in address bar
+        // but if add listener on blur it will first store the data of previous cell in DB from address ar 
         cell.addEventListener("blur", (e) => {
+            // get current cell address from address ar
             let address = addressBar.value;
+            // access object of active cell, and object of cell properties 
             let [activeCell, cellProp] = getCellAndCellProp(address);
+            // get recently entered data into cell and data of integer or string type 
             let enteredData = activeCell.innerText;
 
             if (enteredData === cellProp.value) return;
@@ -17,12 +26,20 @@ for (let i = 0; i < rows; i++) {
     }
 }
 
+/*
+
+Formula Evaluation:
+-> Normal Expression 
+    -> Hard Code value: eg(10 + 20)
+-> Dependancy Expression
+    -> Dependancy Control Value: (A1 + A2 + 10)
+
+*/ 
 let formulaBar = document.querySelector(".formula-bar");
 formulaBar.addEventListener("keydown", async (e) => {
     let inputFormula = formulaBar.value;
+    // inputFormula value can be empty then return empty formula not allowed
     if (e.key === "Enter" && inputFormula) {
-
-
         // If change in formula, break old P-C relation, evaluate new formula, add new P-C relation
         let address = addressBar.value;
         let [cell, cellProp] = getCellAndCellProp(address);
