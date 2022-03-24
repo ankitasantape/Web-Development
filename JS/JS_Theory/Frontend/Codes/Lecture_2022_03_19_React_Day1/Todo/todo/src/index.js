@@ -6,11 +6,12 @@ class AddTask extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            taskDesc : ''
+            taskDesc : ' '
         }
     }
    
     handleTaskTextChange(e){
+         
          this.setState({
              taskDesc: e.target.value
          });
@@ -28,7 +29,7 @@ class AddTask extends React.Component {
     render(){
         return(
             <form>
-                <input type="text" value={this.state.taskDesc} onChange={(e) => this.handleTaskTextChange()} />
+                <input type="text" placeholder="Enter your task here..." value={this.state.taskDesc} onChange={(e) => this.handleTaskTextChange(e)} />
                 <input type="button" value="Add Task" onClick={() => this.handleAddTaskClick()}/>
             </form>
         )
@@ -39,6 +40,10 @@ class TaskList extends React.Component {
 
     handleTaskClick(taskdesc){
         this.props.handlerToCollectTaskClickInfo(taskdesc);
+    }
+
+    handleDeleteTaskClick(taskdesc){
+        this.props.handlerToDeleteTaskClickInfo(taskdesc);
     }
 
    render(){
@@ -57,13 +62,15 @@ class TaskList extends React.Component {
                     <span class="material-icons" onClick={() => this.handleTaskClick(task.desc)}>done</span>
                 );
             }
+            let deleteAction = (<span class="material-icons" onClick={() => this.handleDeleteTaskClick(task.desc)}>delete</span>)
 
             let listItem = (
                 <div key={i}>
                     <span>{task.desc}</span>
-                    {spanAction}
+                    {spanAction} {deleteAction}
                 </div>
             );
+            console.log(listItem);
             list.push(listItem);
         }
 
@@ -85,19 +92,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            tasks: [{
-                desc: 'Switch off light',
-                isFinished: false
-            }, {
-                desc: 'Turn on fan',
-                isFinished: false
-            }, {
-                desc: 'Make tea',
-                isFinished: true
-            }, {
-                desc: 'Make dinner',
-                isFinished: true
-            }]
+            tasks: []
         }
     }
 
@@ -123,6 +118,17 @@ class App extends React.Component {
        })
     }
 
+    removeTodo(taskdesc){
+         let oldTasks = this.state.tasks.slice();
+          console.log(oldTasks);
+         let updatedTasks = oldTasks.filter(ot => ot.desc !== taskdesc);
+          console.log(updatedTasks);
+         this.setState({
+             tasks: updatedTasks
+         })  
+
+    }
+
     render(){
        let tasks = this.state.tasks;
        let todoTasks = tasks.filter(t => t.isFinished === false);
@@ -130,12 +136,13 @@ class App extends React.Component {
 
        return (
            <>
+              <div class="app-title"><h1>TO-DO APP</h1></div> 
               <div className="add-task">
                 <AddTask  handlerToCollectTaskInfo={(taskdesc) => this.handleNewTask(taskdesc)} />
               </div>
               <div className='task-lists'>
-                <TaskList handlerToCollectTaskClickInfo={(taskdesc) => this.handleTaskStatusUpdates(taskdesc, true)}  tasks={todoTasks} purpose="Todo" forStyling="todo"/>
-                <TaskList handlerToCollectTaskClickInfo={(taskdesc) => this.handleTaskStatusUpdates(taskdesc, false)}  tasks={doneTasks} purpose="Finished" forStyling="finished"/>
+                <TaskList handlerToCollectTaskClickInfo={(taskdesc) => this.handleTaskStatusUpdates(taskdesc, true)}  tasks={todoTasks}  handlerToDeleteTaskClickInfo={(taskdesc) => this.removeTodo(taskdesc)} purpose="Todo" forStyling="todo"/>
+                <TaskList handlerToCollectTaskClickInfo={(taskdesc) => this.handleTaskStatusUpdates(taskdesc, false)}  tasks={doneTasks} handlerToDeleteTaskClickInfo={(taskdesc) => this.removeTodo(taskdesc)} purpose="Finished" forStyling="finished"/>
               </div>
            </>
        );
