@@ -213,7 +213,9 @@ function addListenerToAttachCellProperties(cell) {
         }
         // if user has set formula for that cell to evaluate value, then that formula also be restored in the formula bar  
         let formulaBar = document.querySelector(".formula-bar");
+        // jb bhi hum kisi cell ke uppar click krte hai tab formula bar pe us cell pe set kiya gaya formula show hona chahiye isiliye ye kr rhe
         formulaBar.value = cellProp.formula; 
+        // aur cell ke uppar aapne derived kri huyi value lagani chahiye isliye ye kiya
         cell.innerText = cellProp.value;
     })
 }
