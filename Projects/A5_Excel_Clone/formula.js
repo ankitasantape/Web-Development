@@ -56,8 +56,10 @@ formulaBar.addEventListener("keydown", async (e) => {
         // isiliye humane ye check lagaya
         if (inputFormula !== cellProp.formula) removeChildFromParent(cellProp.formula);
 
+        // childrens ko evaluate krne ke pahle add kiya jata hai, badme childrens ko evaluate krte hai
         addChildToGraphComponent(inputFormula, address);
-        // Check formula is cyclic or not, then only evaluate
+        
+        // Check formula is cyclic or not, then only evaluate -> agar formula cyclic hai then return kr jao aur formula change kro aur aisa formula add kro ki jisase cycle na bane OR Agar formula cyclic nhi hai then koi issue nhi hai aap value evaluate kr skte ho
         // True -> cycle, False -> Not cyclic
         // console.log(graphComponentMatrix);
         let cycleResponse = isGraphCyclic(graphComponentMatrix);
@@ -69,10 +71,12 @@ formulaBar.addEventListener("keydown", async (e) => {
                 await isGraphCyclicTracePath(graphComponentMatrix, cycleResponse); // I want to complete full  iteration of color tracking, so I will attach wait here also
                 response = confirm("Your formula is cyclic. Do you want to trace your path?");
             }
+            // agar aapka graph cyclic hai to hum us graph ke p-c relation ko break kr denge becoz wo p-c relation humare kisi kam ka nhi hai, agar graph cyclic hai to hum kuch bhi evaluate nhi kr payenge, wo graph cyclic ke wajah se ghumta hi rah jayega kuch kr nhi payega 
             removeChildFromGraphComponent(inputFormula, address);
             return;
         }
 
+        // evaluate value of input formula
         let evaluatedValue = evaluateFormula(inputFormula);
 
         // To update UI and cellProp in DB
@@ -87,21 +91,30 @@ formulaBar.addEventListener("keydown", async (e) => {
     }
 })
 
+// ais function ke through hum apne graphComponentsMatrix me parent-childrens ke relation ko store karenge
+// graphComponentsMatrix ye matrix cycleValidation.js file banaya hai, jisame hum children ki decoded[0,1] value ko store krenge 
+// taki hum cycle detect kr paye easily 
+// hume formula chahiye -> bcoz formula ke through hi hum dependency ko identify kr payenge
+// aur childreAddress chahiye -> bcoz esiko decode krke apne parent ke under dalana hai 
 function addChildToGraphComponent(formula, childAddress) {
+    // childAddress ki help se hum child ki details decode krenge
     let [crid, ccid] = decodeRIDCIDFromAddress(childAddress);
+    // formula space separated hai isiliye split kr diya space ke basis pe aur wo an jayega encoded formula
     let encodedFormula = formula.split(" ");
+    // encodedFormula ke help se hum parent ki details ko decode krenge
     for (let i = 0; i < encodedFormula.length; i++) {
         let asciiValue = encodedFormula[i].charCodeAt(0);
         if (asciiValue >= 65 && asciiValue <= 90) {
             let [prid, pcid] = decodeRIDCIDFromAddress(encodedFormula[i]);
             // B1: A1 + 10
             // rid -> i, cid -> j
+            // childrens ki details ko add krenge parent ki cell
             graphComponentMatrix[prid][pcid].push([crid, ccid]);
         }
     }
 }
 
-
+// ye function parent-child relation ko break kr dega
 function removeChildFromGraphComponent(formula, childAddress) {
     let [crid, ccid] = decodeRIDCIDFromAddress(childAddress);
     let encodedFormula = formula.split(" ");
@@ -110,7 +123,9 @@ function removeChildFromGraphComponent(formula, childAddress) {
         let asciiValue = encodedFormula[i].charCodeAt(0);
         if (asciiValue >= 65 && asciiValue <= 90) {
             let [prid, pcid] = decodeRIDCIDFromAddress(encodedFormula[i]);
-            graphComponentMatrix[prid][pcid].pop();
+            // last me add kiya ais function me addChildToGraphComponent
+            // to last se hi remove krenge
+            graphComponentMatrix[prid][pcid].pop(); // this is the only change as compare to this function addChildToGraphComponent
         }
     }
 }

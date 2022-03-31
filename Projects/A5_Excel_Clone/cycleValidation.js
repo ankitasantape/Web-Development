@@ -85,40 +85,84 @@ Cycle Formed :
     -> On already visited node, backtrack.  
     -> visited[node] == True && dfsVisited[node] == True -> Cycle Detected.
 
+Implementation: Grid -> cells => 2D Matrix
+  -> Storage -> 2D Matrix
+  -> Relation -> P-C relation
+  -> Implement
 
+*Storage ->   1, 2, 3....... 26
+          1 [[[],[],[],[]..... ], 
+          2   [ ], 
+          3   [ ],
+          ........
+         100  [ ] ] 
+*Relation ->
+   -> Humane grid ke rows ke cells me obj{} rkhe the but ab arrays rkh rhe hai. why?
+      Que. Why Array?
+      -> Becoz one node can have more than one dependency(children)
+         Let, suppose humane pas ye formula hai
+         F:: B1: A1 + 10, F:: C1: A1 + 20
+    node:       A1           B1
+    children: [ B1, C1 ]   [    ]
+   -> ais array me relation kaise banayenge ? p-c
+       for relationship -> B1 represented as -> [0, 1]
+                           C1 represented as -> [0, 2] 
+       node:       A1
+       children: [[0, 1], [0, 2]] hum ais array me directly decoded values hi dal rhe hai
+                    |       |
+                    B1     C1
+*How relation ? -> [0, 1] decoded child array pahle the address ab decoded form me dal rhe [0,1] -> [rid, cid] 
+              A-1,                                      B-2,   C-3,   D-4 ...... Z-26
+          1 [row: [ cell: [ childrens:[0,1], [0,2] ],    [],    [],    []........     ], 
+          2 [[ [0,1]], [[],[]], ], 
+          3   [ ],
+          ........
+         100  [ ] ] 
 
 */
 
-
+// *Storage -> @D matrix (Basic needed)
 let graphComponentsMatrix = [];
 
 for (let i = 0;i < rows;i++) {
     let row = [];
     for (let j = 0;j < cols;j++) {
+        // row me object ki jagah arrays ko push krenge
+        //why array -> becoz more than 1 child relation(dependency) banenge to hum yaha pe kafi sare childrens ko dal payenge
         row.push([]);
     }
+    // humari 100 rows component matrix me dal jayegi
     graphComponentsMatrix.push(row);
 }
 
+// *Algorithm
+// True -> cyclic, false -> non-cyclic
 function isGraphCyclic(graphComponentsMatrix) {  // Cycle detection in Directed graph algorithm
+    // Dependency -> visited, dfsVisited ( 2D array )
     let graphVisited = [];  // Keep track of visited vertex( node )
-    let dfsVisited = [];  // Keep track of visited vertex( node ) in dfs call
+    let dfsVisited = [];  // Keep track of visited vertex( node ) in dfs call -> stackTrace
 
-    for (let i = 0;i < rows;i++) {
-        let graphRow = [];
-        let dfsRow = [];
-        for (let j = 0;j < cols;j++) {
-            graphRow.push(false);
-            dfsRow.push(false);
+    // 100 rows 
+    for (let i = 0; i < rows; i++) {
+        let graphRow = []; // visited ( 1D Array )
+        let dfsRow = []; // dfs ( 1D Array )
+
+        // 26 columns
+        // dependencies me default value false dal denge
+        for (let j = 0; j < cols; j++) {
+            graphRow.push(false); // initially visited array me false dal denge
+            dfsRow.push(false); // aur dfs array me bhi false denge
         }
+        // default wali 2D array jisame bydefault false
         graphVisited.push(graphRow);
         dfsVisited.push(dfsRow);
     }
 
     for (let i = 0;i < rows;i++) {
         for (let j = 0;j < cols;j++) {
+            // agar ye node already visited nhi hai to proceed kro, else return kr jao
             if (graphVisited[i][j] == false) {
-
+                // agar cyclic hai to us cell ki rid aur cid return krdo jaha pe ye cycle form ho rhi hai
                 if (cyclicDFS(graphComponentsMatrix, i, j, graphVisited, dfsVisited) == true) {
                     return [i, j];
                     // {
@@ -133,25 +177,28 @@ function isGraphCyclic(graphComponentsMatrix) {  // Cycle detection in Directed 
     return null;
 }
 
+// 
 function cyclicDFS(graphComponentsMatrix, srcr, srcc, graphVisited, dfsVisited) {
-    graphVisited[srcr][srcc] = true;
-    dfsVisited[srcr][srcc] = true;
+    graphVisited[srcr][srcc] = true; // mark visited 
+    dfsVisited[srcr][srcc] = true; // mark visited
 
-    for (let i = 0;i < graphComponentsMatrix[srcr][srcc].length;i++) {
-        let neighbour = graphComponentsMatrix[srcr][srcc][i];
-        let nbrr = neighbour[0];
-        let nbrc = neighbour[1];
+    for (let i = 0; i < graphComponentsMatrix[srcr][srcc].length; i++) {
+        let neighbour = graphComponentsMatrix[srcr][srcc][i]; // get neighbour node
+        let nbrr = neighbour[0]; // get nr ki rid
+        let nbrc = neighbour[1]; // get nbr ki cid
 
+        // agar nbr unvisited hai tabhi aage badhna 
         if (graphVisited[nbrr][nbrc] == false) {
+            // then nbr pe call krna
             if (cyclicDFS(graphComponentsMatrix, nbrr, nbrc, graphVisited, dfsVisited) == true) {
                 return true;
             }
-        }
+        }  
         else if (dfsVisited[nbrr][nbrc] == true) {  // If visited in both dfs call path and in graph vertex visited, then cycle exists
             return true;
         }
     }
-
+    // wapas aate time stack me se us node ko uda dena aur us node ko unvisited mark kr dena 
     dfsVisited[srcr][srcc] = false;  // Backtrack by unvisiting dfs path
     return false;
 }
